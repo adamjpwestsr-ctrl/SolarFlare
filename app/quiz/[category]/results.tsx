@@ -3,9 +3,21 @@
 import { unlockBadge } from "@/lib/badgeManager";
 import { motion } from "framer-motion";
 
-export default function QuizResults({ score, category }) {
+export default function QuizResults({ score, category, explorerId }) {
   const passed = score >= 80;
-  const badge = passed ? unlockBadge(category) : null;
+
+  // FIX: unlockBadge requires explorerId + category
+  // FIX: unlockBadge is async → must await
+  const getBadge = async () => {
+    if (!passed) return null;
+    return await unlockBadge(explorerId, category);
+  };
+
+  const [badge, setBadge] = React.useState(null);
+
+  React.useEffect(() => {
+    getBadge().then(setBadge);
+  }, [passed, explorerId, category]);
 
   return (
     <div className="text-center p-10">

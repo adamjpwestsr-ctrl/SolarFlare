@@ -1,0 +1,737 @@
+{
+  "quizzes": [
+    {
+      "category": "Sun",
+      "questions": [
+        {
+          "question": "How long does sunlight take to reach Earth?",
+          "correct": "About 8 minutes",
+          "options": ["1 second", "About 8 minutes", "1 hour", "24 hours"]
+        },
+        {
+          "question": "What is the Sun mostly made of?",
+          "correct": "Hydrogen and helium",
+          "options": ["Rock", "Ice", "Hydrogen and helium", "Liquid metal"]
+        },
+        {
+          "question": "What powers the Sun?",
+          "correct": "Nuclear fusion",
+          "options": ["Electricity", "Nuclear fusion", "Wind", "Chemical reactions"]
+        },
+        {
+          "question": "What type of star is the Sun?",
+          "correct": "Yellow dwarf",
+          "options": ["Red giant", "Blue supergiant", "Yellow dwarf", "White dwarf"]
+        },
+        {
+          "question": "What percentage of the solar system’s mass is in the Sun?",
+          "correct": "99.86%",
+          "options": ["10%", "50%", "99.86%", "0.5%"]
+        }
+      ]
+    },
+
+    {
+      "category": "Mercury",
+      "questions": [
+        {
+          "question": "What is Mercury known for?",
+          "correct": "Being the closest planet to the Sun",
+          "options": [
+            "Having rings",
+            "Being the largest planet",
+            "Being the closest planet to the Sun",
+            "Having many moons"
+          ]
+        },
+        {
+          "question": "Why does Mercury have extreme temperature changes?",
+          "correct": "It has almost no atmosphere",
+          "options": [
+            "It has oceans",
+            "It has thick clouds",
+            "It has almost no atmosphere",
+            "It rotates very slowly"
+          ]
+        },
+        {
+          "question": "What is Mercury’s surface covered in?",
+          "correct": "Craters",
+          "options": ["Water", "Forests", "Craters", "Volcanoes"]
+        },
+        {
+          "question": "How many moons does Mercury have?",
+          "correct": "Zero",
+          "options": ["One", "Two", "Zero", "Ten"]
+        },
+        {
+          "question": "What is Mercury’s core mostly made of?",
+          "correct": "Iron",
+          "options": ["Ice", "Rock", "Iron", "Gas"]
+        }
+      ]
+    },
+
+    {
+      "category": "Venus",
+      "questions": [
+        {
+          "question": "Why is Venus the hottest planet?",
+          "correct": "Its thick CO₂ atmosphere traps heat",
+          "options": [
+            "It is closest to the Sun",
+            "Its thick CO₂ atmosphere traps heat",
+            "It has volcanoes",
+            "It rotates quickly"
+          ]
+        },
+        {
+          "question": "What direction does Venus rotate?",
+          "correct": "Backwards",
+          "options": ["Forwards", "Sideways", "Backwards", "It doesn’t rotate"]
+        },
+        {
+          "question": "What is Venus often called?",
+          "correct": "Earth’s twin",
+          "options": ["Earth’s twin", "The red planet", "The ice planet", "The ringed planet"]
+        },
+        {
+          "question": "What covers most of Venus’s surface?",
+          "correct": "Volcanic plains",
+          "options": ["Oceans", "Forests", "Volcanic plains", "Ice"]
+        },
+        {
+          "question": "How many moons does Venus have?",
+          "correct": "Zero",
+          "options": ["One", "Two", "Zero", "Five"]
+        }
+      ]
+    },
+
+    {
+      "category": "Earth",
+      "questions": [
+        {
+          "question": "What makes Earth unique?",
+          "correct": "It has known life",
+          "options": ["It has rings", "It has known life", "It is the biggest planet", "It has two suns"]
+        },
+        {
+          "question": "What protects Earth from solar radiation?",
+          "correct": "Its magnetic field",
+          "options": ["Its oceans", "Its clouds", "Its magnetic field", "Its mountains"]
+        },
+        {
+          "question": "What percentage of Earth is covered in water?",
+          "correct": "70%",
+          "options": ["10%", "30%", "70%", "90%"]
+        },
+        {
+          "question": "What is Earth’s atmosphere mostly made of?",
+          "correct": "Nitrogen and oxygen",
+          "options": ["Carbon dioxide", "Hydrogen", "Nitrogen and oxygen", "Methane"]
+        },
+        {
+          "question": "How many moons does Earth have?",
+          "correct": "One",
+          "options": ["Zero", "One", "Two", "Ten"]
+        }
+      ]
+    },
+
+    {
+      "category": "Moon",
+      "questions": [
+        {
+          "question": "What causes ocean tides?",
+          "correct": "The Moon’s gravity",
+          "options": ["Wind", "Earth’s rotation", "The Moon’s gravity", "Sunlight"]
+        },
+        {
+          "question": "What is the far side of the Moon like?",
+          "correct": "Heavily cratered",
+          "options": ["Smooth", "Covered in water", "Heavily cratered", "Full of forests"]
+        },
+        {
+          "question": "How many people have walked on the Moon?",
+          "correct": "12",
+          "options": ["1", "5", "12", "50"]
+        },
+        {
+          "question": "What does the Moon lack?",
+          "correct": "An atmosphere",
+          "options": ["Rocks", "Gravity", "An atmosphere", "Craters"]
+        },
+        {
+          "question": "What is happening to the Moon over time?",
+          "correct": "It is drifting away",
+          "options": ["It is shrinking", "It is drifting away", "It is melting", "It is speeding up"]
+        }
+      ]
+    },
+
+    {
+      "category": "Mars",
+      "questions": [
+        {
+          "question": "What is Mars known as?",
+          "correct": "The Red Planet",
+          "options": ["The Blue Planet", "The Red Planet", "The Gas Planet", "The Ice Planet"]
+        },
+        {
+          "question": "What is Olympus Mons?",
+          "correct": "The largest volcano in the solar system",
+          "options": [
+            "A crater",
+            "A mountain on Earth",
+            "The largest volcano in the solar system",
+            "A Martian moon"
+          ]
+        },
+        {
+          "question": "How many moons does Mars have?",
+          "correct": "Two",
+          "options": ["Zero", "One", "Two", "Ten"]
+        },
+        {
+          "question": "What once flowed on Mars?",
+          "correct": "Water",
+          "options": ["Lava", "Water", "Icebergs", "Sandstorms"]
+        },
+        {
+          "question": "What can cover the entire planet?",
+          "correct": "Dust storms",
+          "options": ["Snow", "Dust storms", "Clouds", "Volcano smoke"]
+        }
+      ]
+    },
+
+    {
+      "category": "Asteroid Belt",
+      "questions": [
+        {
+          "question": "Where is the asteroid belt located?",
+          "correct": "Between Mars and Jupiter",
+          "options": ["Between Earth and Mars", "Between Mars and Jupiter", "Around the Sun", "Beyond Neptune"]
+        },
+        {
+          "question": "What is the largest object in the asteroid belt?",
+          "correct": "Ceres",
+          "options": ["Vesta", "Ceres", "Pallas", "Eros"]
+        },
+        {
+          "question": "What shape are most asteroids?",
+          "correct": "Irregular",
+          "options": ["Round", "Flat", "Irregular", "Square"]
+        },
+        {
+          "question": "What are asteroids?",
+          "correct": "Leftover building blocks of planets",
+          "options": [
+            "Broken moons",
+            "Leftover building blocks of planets",
+            "Frozen stars",
+            "Pieces of comets"
+          ]
+        },
+        {
+          "question": "Do some asteroids have moons?",
+          "correct": "Yes",
+          "options": ["Yes", "No", "Only large ones", "Only small ones"]
+        }
+      ]
+    },
+
+    {
+      "category": "Jupiter",
+      "questions": [
+        {
+          "question": "What is Jupiter’s Great Red Spot?",
+          "correct": "A giant storm",
+          "options": ["A volcano", "A crater", "A giant storm", "A frozen lake"]
+        },
+        {
+          "question": "How many moons does Jupiter have?",
+          "correct": "Over 90",
+          "options": ["1", "10", "50", "Over 90"]
+        },
+        {
+          "question": "What type of planet is Jupiter?",
+          "correct": "Gas giant",
+          "options": ["Ice giant", "Rocky planet", "Gas giant", "Dwarf planet"]
+        },
+        {
+          "question": "Which moon is the largest in the solar system?",
+          "correct": "Ganymede",
+          "options": ["Europa", "Titan", "Ganymede", "Callisto"]
+        },
+        {
+          "question": "How fast does Jupiter rotate?",
+          "correct": "Fastest of all planets",
+          "options": ["Slowest", "Same as Earth", "Fastest of all planets", "It doesn’t rotate"]
+        }
+      ]
+    },
+
+    {
+      "category": "Saturn",
+      "questions": [
+        {
+          "question": "What is Saturn famous for?",
+          "correct": "Its rings",
+          "options": ["Its volcanoes", "Its rings", "Its oceans", "Its mountains"]
+        },
+        {
+          "question": "What type of planet is Saturn?",
+          "correct": "Gas giant",
+          "options": ["Rocky planet", "Ice giant", "Gas giant", "Dwarf planet"]
+        },
+        {
+          "question": "What moon has methane lakes?",
+          "correct": "Titan",
+          "options": ["Europa", "Titan", "Ganymede", "Enceladus"]
+        },
+        {
+          "question": "What shoots from Enceladus?",
+          "correct": "Water geysers",
+          "options": ["Lava", "Sand", "Water geysers", "Gas clouds"]
+        },
+        {
+          "question": "What are Saturn’s rings made of?",
+          "correct": "Ice and rock",
+          "options": ["Gas", "Metal", "Ice and rock", "Dust only"]
+        }
+      ]
+    },
+
+    {
+      "category": "Uranus",
+      "questions": [
+        {
+          "question": "What is unusual about Uranus?",
+          "correct": "It rotates on its side",
+          "options": [
+            "It rotates backwards",
+            "It rotates on its side",
+            "It doesn’t rotate",
+            "It spins extremely fast"
+          ]
+        },
+        {
+          "question": "What type of planet is Uranus?",
+          "correct": "Ice giant",
+          "options": ["Gas giant", "Rocky planet", "Ice giant", "Dwarf planet"]
+        },
+        {
+          "question": "What color does Uranus appear?",
+          "correct": "Blue",
+          "options": ["Red", "Green", "Blue", "Yellow"]
+        },
+        {
+          "question": "How many moons does Uranus have?",
+          "correct": "27",
+          "options": ["1", "5", "27", "100"]
+        },
+        {
+          "question": "What is Uranus mostly made of?",
+          "correct": "Water, methane, and ammonia",
+          "options": [
+            "Rock",
+            "Hydrogen only",
+            "Water, methane, and ammonia",
+            "Liquid metal"
+          ]
+        }
+      ]
+    },
+
+    {
+      "category": "Neptune",
+      "questions": [
+        {
+          "question": "What is Neptune known for?",
+          "correct": "Strongest winds in the solar system",
+          "options": [
+            "Strongest gravity",
+            "Strongest winds in the solar system",
+            "Brightest rings",
+            "Warm temperatures"
+          ]
+        },
+        {
+          "question": "What type of planet is Neptune?",
+          "correct": "Ice giant",
+          "options": ["Gas giant", "Rocky planet", "Ice giant", "Dwarf planet"]
+        },
+        {
+          "question": "What is unusual about Triton?",
+          "correct": "It orbits backwards",
+          "options": [
+            "It is square-shaped",
+            "It orbits backwards",
+            "It has volcanoes",
+            "It is bigger than Earth"
+          ]
+        },
+        {
+          "question": "What color is Neptune?",
+          "correct": "Blue",
+          "options": ["Red", "Green", "Blue", "Yellow"]
+        },
+        {
+          "question": "What does Neptune have?",
+          "correct": "Dark storms",
+          "options": ["Forests", "Dark storms", "Oceans", "Mountains"]
+        }
+      ]
+    },
+
+    {
+      "category": "Dwarf Planets",
+      "questions": [
+        {
+          "question": "Where is Pluto located?",
+          "correct": "In the Kuiper Belt",
+          "options": ["In the asteroid belt", "In the Kuiper Belt", "Around Earth", "Inside Jupiter"]
+        },
+        {
+          "question": "What shape is Pluto’s heart-shaped region?",
+          "correct": "Tombaugh Regio",
+          "options": ["Olympus Mons", "Tombaugh Regio", "Valles Marineris", "Charon Crater"]
+        },
+        {
+          "question": "What is special about Haumea?",
+          "correct": "It has a ring",
+          "options": ["It has oceans", "It has a ring", "It has volcanoes", "It has no gravity"]
+        },
+        {
+          "question": "What is Ceres?",
+          "correct": "A dwarf planet in the asteroid belt",
+          "options": [
+            "A moon of Mars",
+            "A comet",
+            "A dwarf planet in the asteroid belt",
+            "A star"
+          ]
+        },
+        {
+          "question": "What is Eris known for?",
+          "correct": "Being more massive than Pluto",
+          "options": [
+            "Being closer to Earth",
+            "Being more massive than Pluto",
+            "Having rings",
+            "Being made of gas"
+          ]
+        }
+      ]
+    },
+
+    {
+      "category": "Comets",
+      "questions": [
+        {
+          "question": "What are comets made of?",
+          "correct": "Ice, dust, and rock",
+          "options": ["Gas", "Metal", "Ice, dust, and rock", "Liquid water"]
+        },
+        {
+          "question": "Where do many comets come from?",
+          "correct": "The Kuiper Belt and Oort Cloud",
+          "options": [
+            "Earth",
+            "Mars",
+            "The Kuiper Belt and Oort Cloud",
+            "The Sun"
+          ]
+        },
+        {
+          "question": "What happens when comets approach the Sun?",
+          "correct": "They grow tails",
+          "options": ["They melt completely", "They explode", "They grow tails", "They stop moving"]
+        },
+        {
+          "question": "What direction do comet tails point?",
+          "correct": "Away from the Sun",
+          "options": ["Toward the Sun", "Away from the Sun", "Toward Earth", "Toward Jupiter"]
+        },
+        {
+          "question": "What famous comet returns every 76 years?",
+          "correct": "Halley’s Comet",
+          "options": ["Enceladus", "Halley’s Comet", "Shoemaker-Levy 9", "Titan"]
+        }
+      ]
+    },
+
+    {
+      "category": "Stars",
+      "questions": [
+        {
+          "question": "Where are stars born?",
+          "correct": "In nebulae",
+          "options": ["In oceans", "In nebulae", "Inside planets", "In black holes"]
+        },
+        {
+          "question": "What color are the hottest stars?",
+          "correct": "Blue",
+          "options": ["Red", "Yellow", "Blue", "White"]
+        },
+        {
+          "question": "What powers stars?",
+          "correct": "Nuclear fusion",
+          "options": ["Electricity", "Wind", "Nuclear fusion", "Chemical reactions"]
+        },
+        {
+          "question": "What do massive stars become when they die?",
+          "correct": "Supernovae",
+          "options": ["Comets", "Supernovae", "Planets", "Asteroids"]
+        },
+        {
+          "question": "What type of star is most common?",
+          "correct": "Red dwarfs",
+          "options": ["Blue giants", "Red dwarfs", "Yellow dwarfs", "White dwarfs"]
+        }
+      ]
+    },
+
+    {
+      "category": "Galaxies",
+      "questions": [
+        {
+          "question": "What galaxy do we live in?",
+          "correct": "The Milky Way",
+          "options": ["Andromeda", "Triangulum", "The Milky Way", "Sombrero"]
+        },
+        {
+          "question": "What shape can galaxies be?",
+          "correct": "Spiral, elliptical, or irregular",
+          "options": [
+            "Square",
+            "Spiral, elliptical, or irregular",
+            "Triangle",
+            "Diamond"
+          ]
+        },
+        {
+          "question": "What is at the center of many galaxies?",
+          "correct": "A supermassive black hole",
+          "options": [
+            "A giant moon",
+            "A supermassive black hole",
+            "A huge star",
+            "A comet"
+          ]
+        },
+        {
+          "question": "What is the nearest large galaxy to the Milky Way?",
+          "correct": "Andromeda",
+	  "options": ["Sombrero", "Andromeda", "Whirlpool", "Pinwheel"]
+        },
+        {
+          "question": "What will happen to the Milky Way and Andromeda?",
+          "correct": "They will collide in about 4 billion years",
+          "options": [
+            "They will collide in about 4 billion years",
+            "They will explode",
+            "They will freeze",
+            "They will disappear"
+          ]
+        },
+        {
+          "question": "How many galaxies are in the universe?",
+          "correct": "Trillions",
+          "options": ["Hundreds", "Thousands", "Millions", "Trillions"]
+        },
+        {
+          "question": "What type of galaxy is the Milky Way?",
+          "correct": "A spiral galaxy",
+          "options": [
+            "A spiral galaxy",
+            "An elliptical galaxy",
+            "An irregular galaxy",
+            "A ring galaxy"
+          ]
+        }
+      ]
+    },
+
+    {
+      "category": "Nebulae",
+      "questions": [
+        {
+          "question": "What are nebulae?",
+          "correct": "Clouds of gas and dust",
+          "options": [
+            "Frozen planets",
+            "Clouds of gas and dust",
+            "Black holes",
+            "Exploded moons"
+          ]
+        },
+        {
+          "question": "Where are stars born?",
+          "correct": "In nebulae",
+          "options": ["In oceans", "In nebulae", "Inside planets", "In comets"]
+        },
+        {
+          "question": "What famous nebula contains the Pillars of Creation?",
+          "correct": "The Eagle Nebula",
+          "options": [
+            "The Orion Nebula",
+            "The Eagle Nebula",
+            "The Crab Nebula",
+            "The Helix Nebula"
+          ]
+        },
+        {
+          "question": "What causes nebulae to glow?",
+          "correct": "Energy from nearby stars",
+          "options": [
+            "Electricity",
+            "Energy from nearby stars",
+            "Wind",
+            "Volcanoes"
+          ]
+        },
+        {
+          "question": "What type of nebula forms when a star dies?",
+          "correct": "A planetary nebula",
+          "options": [
+            "A spiral nebula",
+            "A planetary nebula",
+            "A comet nebula",
+            "A dust nebula"
+          ]
+        }
+      ]
+    },
+
+    {
+      "category": "Black Holes",
+      "questions": [
+        {
+          "question": "What is a black hole?",
+          "correct": "A place where gravity is so strong that not even light escapes",
+          "options": [
+            "A giant planet",
+            "A hole in space",
+            "A place where gravity is so strong that not even light escapes",
+            "A collapsed moon"
+          ]
+        },
+        {
+          "question": "What do black holes form from?",
+          "correct": "Collapsed massive stars",
+          "options": [
+            "Frozen planets",
+            "Collapsed massive stars",
+            "Exploded moons",
+            "Comets"
+          ]
+        },
+        {
+          "question": "What is at the center of the Milky Way?",
+          "correct": "A supermassive black hole",
+          "options": [
+            "A giant star",
+            "A supermassive black hole",
+            "A huge planet",
+            "A nebula"
+          ]
+        },
+        {
+          "question": "What happens to time near a black hole?",
+          "correct": "It slows down",
+          "options": ["It speeds up", "It stops", "It slows down", "It reverses"]
+        },
+        {
+          "question": "Can black holes merge?",
+          "correct": "Yes",
+          "options": ["Yes", "No", "Only small ones", "Only giant ones"]
+        }
+      ]
+    },
+
+    {
+      "category": "Spacecraft",
+      "questions": [
+        {
+          "question": "What is the farthest human-made object?",
+          "correct": "Voyager 1",
+          "options": ["Hubble", "Voyager 1", "New Horizons", "Apollo 11"]
+        },
+        {
+          "question": "What spacecraft visited all four giant planets?",
+          "correct": "Voyager 2",
+          "options": ["Voyager 1", "Voyager 2", "Pioneer 10", "Cassini"]
+        },
+        {
+          "question": "What spacecraft flew past Pluto?",
+          "correct": "New Horizons",
+          "options": ["Voyager 1", "New Horizons", "Hubble", "Apollo 17"]
+        },
+        {
+          "question": "What telescope studies distant galaxies?",
+          "correct": "James Webb Space Telescope",
+          "options": [
+            "Hubble",
+            "James Webb Space Telescope",
+            "Kepler",
+            "Chandra"
+          ]
+        },
+        {
+          "question": "What mission landed humans on the Moon?",
+          "correct": "Apollo",
+          "options": ["Gemini", "Apollo", "Orion", "Artemis"]
+        }
+      ]
+    },
+
+    {
+      "category": "Cosmology",
+      "questions": [
+        {
+          "question": "How old is the universe?",
+          "correct": "About 13.8 billion years",
+          "options": [
+            "1 million years",
+            "100 million years",
+            "About 13.8 billion years",
+            "100 billion years"
+          ]
+        },
+        {
+          "question": "What event created the universe?",
+          "correct": "The Big Bang",
+          "options": [
+            "The Big Bang",
+            "A giant explosion of stars",
+            "A black hole",
+            "A cosmic storm"
+          ]
+        },
+        {
+          "question": "What is causing the universe to expand faster?",
+          "correct": "Dark energy",
+          "options": ["Dark matter", "Dark energy", "Gravity", "Starlight"]
+        },
+        {
+          "question": "What is most of the universe’s mass made of?",
+          "correct": "Dark matter",
+          "options": ["Stars", "Planets", "Dark matter", "Nebulae"]
+        },
+        {
+          "question": "How wide is the observable universe?",
+          "correct": "93 billion light-years",
+          "options": [
+            "1 million miles",
+            "93 billion light-years",
+            "100 light-years",
+            "500 million miles"
+          ]
+        }
+      ]
+    }
+  ]
+}

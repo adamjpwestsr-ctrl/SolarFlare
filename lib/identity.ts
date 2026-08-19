@@ -70,3 +70,14 @@ export async function updateExplorerSettings(id: string, settings: any) {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(data));
   return data;
 }
+// Find explorer by name
+export async function findExplorer(name: string) {
+  const { data, error } = await supabase
+    .from("explorers")
+    .select("*")
+    .ilike("name", name); // case-insensitive match
+
+  if (error) throw error;
+
+  return data && data.length > 0 ? data[0] : null;
+}

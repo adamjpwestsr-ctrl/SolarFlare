@@ -1,0 +1,72 @@
+/* iPad breakpoint */
+@media (min-width: 768px) and (max-width: 1180px) {
+  .ipad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .ipad-card {
+    padding: 32px;
+    border-radius: 24px;
+  }
+
+  .ipad-text-xl {
+    font-size: 1.75rem;
+  }
+
+  .ipad-text-2xl {
+    font-size: 2.25rem;
+  }
+}
+
+/* Landscape iPad centering */
+@media (orientation: landscape) and (min-width: 768px) {
+  .landscape-center {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+/* Full-screen cosmic mode */
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+  touch-action: manipulation;
+}
+.theme-indigo {
+  --theme-color: #4f46e5;
+}
+
+.theme-purple {
+  --theme-color: #7c3aed;
+}
+
+.theme-blue {
+  --theme-color: #2563eb;
+}
+
+.theme-emerald {
+  --theme-color: #059669;
+}
+
+.theme-rose {
+  --theme-color: #e11d48;
+}
+
+.theme-amber {
+  --theme-color: #d97706;
+}
+
+/* Universal theme usage */
+.theme-bg {
+  background-color: var(--theme-color);
+}
+
+.theme-text {
+  color: var(--theme-color);
+}
+
+.theme-border {
+  border-color: var(--theme-color);
+}

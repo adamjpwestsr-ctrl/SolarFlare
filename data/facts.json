@@ -1,0 +1,289 @@
+{
+  "facts": [
+    {
+      "category": "Sun",
+      "facts": [
+        "The Sun makes up 99.86% of all mass in the solar system.",
+        "The Sun is a yellow dwarf star.",
+        "The Sun is about 4.6 billion years old.",
+        "The Sun’s core reaches 27 million degrees Fahrenheit.",
+        "Light from the Sun takes 8 minutes and 20 seconds to reach Earth.",
+        "The Sun rotates faster at its equator than at its poles.",
+        "Solar flares can release energy equal to millions of nuclear bombs.",
+        "The Sun will eventually become a red giant.",
+        "The Sun’s gravity holds the entire solar system together.",
+        "The Sun produces energy through nuclear fusion."
+      ]
+    },
+    {
+      "category": "Mercury",
+      "facts": [
+        "Mercury is the closest planet to the Sun.",
+        "Mercury has no atmosphere to trap heat.",
+        "Mercury experiences extreme temperature swings.",
+        "A day on Mercury lasts longer than a year on Mercury.",
+        "Mercury has been visited by only two spacecraft: Mariner 10 and MESSENGER.",
+        "Mercury has a large iron core.",
+        "Mercury has ice in permanently shadowed craters.",
+        "Mercury has no moons.",
+        "Mercury is the smallest planet in the solar system.",
+        "Mercury’s surface is covered in craters."
+      ]
+    },
+    {
+      "category": "Venus",
+      "facts": [
+        "Venus is the hottest planet in the solar system.",
+        "Venus has a thick atmosphere of carbon dioxide.",
+        "Venus rotates backwards compared to most planets.",
+        "A day on Venus is longer than a year on Venus.",
+        "Venus is often called Earth’s twin.",
+        "Venus has no moons.",
+        "Venus is covered in volcanic plains.",
+        "Venus has crushing atmospheric pressure.",
+        "Venus reflects sunlight strongly, making it very bright.",
+        "Venus has hurricane‑force winds in its upper atmosphere."
+      ]
+    },
+    {
+      "category": "Earth",
+      "facts": [
+        "Earth is the only known planet with life.",
+        "Earth has one moon.",
+        "Earth’s atmosphere is mostly nitrogen and oxygen.",
+        "Earth is the densest planet in the solar system.",
+        "Earth’s magnetic field protects us from solar radiation.",
+        "70% of Earth’s surface is covered in water.",
+        "Earth orbits the Sun at 67,000 mph.",
+        "Earth’s core is as hot as the surface of the Sun.",
+        "Earth has tectonic plates that move.",
+        "Earth’s moon stabilizes its tilt."
+      ]
+    },
+    {
+      "category": "Moon",
+      "facts": [
+        "The Moon is Earth’s only natural satellite.",
+        "The Moon formed from a giant impact with Earth.",
+        "The Moon has no atmosphere.",
+        "The Moon’s gravity causes ocean tides.",
+        "The Moon is drifting away from Earth.",
+        "The Moon has quakes called moonquakes.",
+        "The far side of the Moon is heavily cratered.",
+        "The Moon has mountains taller than Mount Everest.",
+        "Only 12 humans have walked on the Moon.",
+        "The Moon is the fifth‑largest moon in the solar system."
+      ]
+    },
+    {
+      "category": "Mars",
+      "facts": [
+        "Mars is known as the Red Planet.",
+        "Mars has the largest volcano in the solar system: Olympus Mons.",
+        "Mars has two moons: Phobos and Deimos.",
+        "Mars once had flowing water.",
+        "Mars has dust storms that can cover the entire planet.",
+        "Mars has seasons like Earth.",
+        "Mars’ atmosphere is mostly carbon dioxide.",
+        "Mars rovers have been exploring since 1997.",
+        "Mars has canyons larger than the Grand Canyon.",
+        "Mars may have underground water today."
+      ]
+    },
+    {
+      "category": "Asteroid Belt",
+      "facts": [
+        "The asteroid belt lies between Mars and Jupiter.",
+        "Ceres is the largest object in the asteroid belt.",
+        "Most asteroids are irregularly shaped.",
+        "Some asteroids have moons.",
+        "The asteroid belt is mostly empty space.",
+        "Asteroids are leftover building blocks of planets.",
+        "The asteroid belt contains millions of objects.",
+        "Vesta is one of the brightest asteroids.",
+        "Asteroids can be metallic or rocky.",
+        "The asteroid belt formed 4.6 billion years ago."
+      ]
+    },
+    {
+      "category": "Jupiter",
+      "facts": [
+        "Jupiter is the largest planet in the solar system.",
+        "Jupiter has a storm called the Great Red Spot.",
+        "Jupiter has at least 95 moons.",
+        "Ganymede is the largest moon in the solar system.",
+        "Jupiter has faint rings.",
+        "Jupiter is a gas giant.",
+        "Jupiter’s magnetic field is extremely strong.",
+        "Jupiter emits more heat than it receives.",
+        "Jupiter rotates faster than any other planet.",
+        "Jupiter’s core may be metallic hydrogen."
+      ]
+    },
+    {
+      "category": "Saturn",
+      "facts": [
+        "Saturn has the most spectacular rings in the solar system.",
+        "Saturn is a gas giant.",
+        "Saturn has over 140 moons.",
+        "Titan has lakes of methane.",
+        "Enceladus has geysers that shoot water into space.",
+        "Saturn is less dense than water.",
+        "Saturn’s rings are made of ice and rock.",
+        "Saturn has storms at its poles.",
+        "Saturn rotates very quickly.",
+        "Saturn’s rings may be younger than the dinosaurs."
+      ]
+    },
+    {
+      "category": "Uranus",
+      "facts": [
+        "Uranus rotates on its side.",
+        "Uranus is an ice giant.",
+        "Uranus has faint rings.",
+        "Uranus has 27 moons.",
+        "Uranus is very cold.",
+        "Uranus was the first planet discovered with a telescope.",
+        "Uranus has a tilted magnetic field.",
+        "Uranus has storms in its atmosphere.",
+        "Uranus is mostly water, methane, and ammonia.",
+        "Uranus appears blue due to methane."
+      ]
+    },
+    {
+      "category": "Neptune",
+      "facts": [
+        "Neptune has the strongest winds in the solar system.",
+        "Neptune is an ice giant.",
+        "Neptune has a moon named Triton.",
+        "Triton orbits backwards.",
+        "Neptune has dark storms.",
+        "Neptune is farthest from the Sun.",
+        "Neptune was discovered using math.",
+        "Neptune has faint rings.",
+        "Neptune is very cold.",
+        "Neptune appears blue due to methane."
+      ]
+    },
+    {
+      "category": "Dwarf Planets",
+      "facts": [
+        "Pluto is a dwarf planet in the Kuiper Belt.",
+        "Pluto has a heart‑shaped region called Tombaugh Regio.",
+        "Pluto’s moon Charon is almost half its size.",
+        "Ceres is the only dwarf planet in the asteroid belt.",
+        "Eris is more massive than Pluto.",
+        "Haumea has a ring system.",
+        "Makemake is one of the brightest objects in the Kuiper Belt.",
+        "Quaoar has a ring outside its Roche limit.",
+        "Sedna has an extremely long orbit.",
+        "Dwarf planets are round but have not cleared their orbits."
+      ]
+    },
+    {
+      "category": "Comets",
+      "facts": [
+        "Comets are made of ice, dust, and rock.",
+        "Comets come from the Kuiper Belt and Oort Cloud.",
+        "Comets develop tails when near the Sun.",
+        "Comet tails always point away from the Sun.",
+        "Halley’s Comet returns every 76 years.",
+        "Comets may have delivered water to Earth.",
+        "Comets can have two tails.",
+        "Comets are ancient leftovers from the solar system’s formation.",
+        "Comets can be visible for weeks.",
+        "Comets travel on long elliptical orbits."
+      ]
+    },
+    {
+      "category": "Stars",
+      "facts": [
+        "Stars are giant balls of hot gas.",
+        "Stars are born in nebulae.",
+        "Stars come in many colors.",
+        "Red dwarfs are the most common stars.",
+        "Blue stars are the hottest.",
+        "Stars shine due to nuclear fusion.",
+        "Stars can live for billions of years.",
+        "Massive stars explode as supernovae.",
+        "Neutron stars are incredibly dense.",
+        "Some stars are in binary systems."
+      ]
+    },
+    {
+      "category": "Galaxies",
+      "facts": [
+        "The Milky Way is our home galaxy.",
+        "Galaxies contain billions of stars.",
+        "Galaxies come in spiral, elliptical, and irregular shapes.",
+        "The Andromeda Galaxy is our nearest large neighbor.",
+        "The Milky Way and Andromeda will collide in 4 billion years.",
+        "Some galaxies have supermassive black holes.",
+        "Dwarf galaxies are very small.",
+        "Starburst galaxies create stars rapidly.",
+        "Galaxies can collide and merge.",
+        "The universe contains trillions of galaxies."
+      ]
+    },
+    {
+      "category": "Nebulae",
+      "facts": [
+        "Nebulae are clouds of gas and dust.",
+        "Stars are born in nebulae.",
+        "The Orion Nebula is visible from Earth.",
+        "Planetary nebulae form from dying stars.",
+        "Supernova remnants are nebulae.",
+        "Nebulae can glow in bright colors.",
+        "Nebulae can be huge.",
+        "The Eagle Nebula contains the Pillars of Creation.",
+        "Nebulae can form star clusters.",
+        "Nebulae are important for star formation."
+      ]
+    },
+    {
+      "category": "Black Holes",
+      "facts": [
+        "Black holes have gravity so strong that not even light escapes.",
+        "Black holes form from collapsed stars.",
+        "Supermassive black holes exist at galaxy centers.",
+        "The Milky Way’s black hole is called Sagittarius A*.",
+        "Black holes can merge.",
+        "Black holes can warp spacetime.",
+        "Black holes can grow by eating matter.",
+        "Some black holes emit jets.",
+        "Black holes do not suck like vacuums.",
+        "Time slows down near a black hole."
+      ]
+    },
+    {
+      "category": "Spacecraft",
+      "facts": [
+        "Voyager 1 is the farthest human‑made object.",
+        "Voyager 2 visited all four giant planets.",
+        "New Horizons flew past Pluto in 2015.",
+        "The James Webb Space Telescope studies distant galaxies.",
+        "The Hubble Space Telescope has taken iconic images.",
+        "The Mars rovers explore the Red Planet.",
+        "The ISS orbits Earth every 90 minutes.",
+        "Apollo missions landed humans on the Moon.",
+        "Parker Solar Probe studies the Sun up close.",
+        "Artemis aims to return humans to the Moon."
+      ]
+    },
+    {
+      "category": "Cosmology",
+      "facts": [
+        "The universe is about 13.8 billion years old.",
+        "The Big Bang created the universe.",
+        "The universe is expanding.",
+        "Dark matter makes up most of the universe’s mass.",
+        "Dark energy accelerates expansion.",
+        "Cosmic microwave background is leftover radiation.",
+        "Galaxies formed from early matter clumps.",
+        "The universe has no center.",
+        "Space itself can stretch.",
+        "The observable universe is 93 billion light‑years wide."
+      ]
+    }
+  ]
+}

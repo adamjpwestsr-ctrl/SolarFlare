@@ -1,0 +1,184 @@
+{
+  "badges": [
+    {
+      "id": "solar-badge",
+      "name": "Solar Scholar",
+      "icon": "☀️",
+      "category": "Sun",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for mastering facts about the Sun."
+    },
+    {
+      "id": "mercury-badge",
+      "name": "Mercury Messenger",
+      "icon": "☿️",
+      "category": "Mercury",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by completing the Mercury quiz."
+    },
+    {
+      "id": "venus-badge",
+      "name": "Venus Voyager",
+      "icon": "♀️",
+      "category": "Venus",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for learning about Earth's fiery twin."
+    },
+    {
+      "id": "earth-badge",
+      "name": "Earth Explorer",
+      "icon": "🌍",
+      "category": "Earth",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by completing Earth’s fact challenges."
+    },
+    {
+      "id": "moon-badge",
+      "name": "Lunar Explorer",
+      "icon": "🌕",
+      "category": "Moon",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for mastering Moon facts."
+    },
+    {
+      "id": "mars-badge",
+      "name": "Martian Scout",
+      "icon": "🔴",
+      "category": "Mars",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by completing the Mars quiz."
+    },
+    {
+      "id": "asteroid-badge",
+      "name": "Asteroid Ace",
+      "icon": "🪨",
+      "category": "Asteroid Belt",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for learning about the asteroid belt."
+    },
+    {
+      "id": "jupiter-badge",
+      "name": "Jupiter Jumper",
+      "icon": "🟤",
+      "category": "Jupiter",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by completing Jupiter’s quiz."
+    },
+    {
+      "id": "saturn-badge",
+      "name": "Saturn Specialist",
+      "icon": "🪐",
+      "category": "Saturn",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for learning about Saturn’s rings."
+    },
+    {
+      "id": "uranus-badge",
+      "name": "Uranus Adventurer",
+      "icon": "💠",
+      "category": "Uranus",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by completing the Uranus quiz."
+    },
+    {
+      "id": "neptune-badge",
+      "name": "Neptune Navigator",
+      "icon": "🔵",
+      "category": "Neptune",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for mastering Neptune facts."
+    },
+    {
+      "id": "dwarf-badge",
+      "name": "Dwarf Planet Discoverer",
+      "icon": "❄️",
+      "category": "Dwarf Planets",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by exploring dwarf planet facts."
+    },
+    {
+      "id": "comet-badge",
+      "name": "Comet Chaser",
+      "icon": "☄️",
+      "category": "Comets",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for learning about comets."
+    },
+    {
+      "id": "star-badge",
+      "name": "Star Student",
+      "icon": "⭐",
+      "category": "Stars",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by completing the star quiz."
+    },
+    {
+      "id": "galaxy-badge",
+      "name": "Galaxy Guru",
+      "icon": "🌌",
+      "category": "Galaxies",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for mastering galaxy facts."
+    },
+    {
+      "id": "nebula-badge",
+      "name": "Nebula Navigator",
+      "icon": "🌀",
+      "category": "Nebulae",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by exploring nebula facts."
+    },
+    {
+      "id": "blackhole-badge",
+      "name": "Black Hole Boss",
+      "icon": "⚫",
+      "category": "Black Holes",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for learning about black holes."
+    },
+    {
+      "id": "spacecraft-badge",
+      "name": "Spacecraft Specialist",
+      "icon": "🚀",
+      "category": "Spacecraft",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by mastering spacecraft history."
+    },
+    {
+      "id": "cosmic-badge",
+      "name": "Cosmic Explorer",
+      "icon": "✨",
+      "category": "Cosmology",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Awarded for learning about the universe."
+    },
+    {
+      "id": "master-badge",
+      "name": "Master of the Universe",
+      "icon": "🌠",
+      "category": "Special",
+      "earned": false,
+      "earnedDate": null,
+      "description": "Earned by collecting all other badges."
+    }
+  ]
+}

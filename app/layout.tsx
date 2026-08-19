@@ -3,8 +3,10 @@ import NavBar from "./components/NavBar";
 import PageTransition from "./components/PageTransition";
 import { headers } from "next/headers";
 
-export default function RootLayout({ children }) {
-  const pathname = headers().get("x-pathname") || "";
+export default async function RootLayout({ children }) {
+  // FIX: headers() must be awaited
+  const headerList = await headers();
+  const pathname = headerList.get("x-pathname") || "";
 
   const hideNav =
     pathname.startsWith("/identity") ||

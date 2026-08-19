@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { unlockBadge } from "@/lib/badgeManager";
 import { motion } from "framer-motion";
 

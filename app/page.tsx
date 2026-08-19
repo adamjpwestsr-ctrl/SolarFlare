@@ -1,12 +1,9 @@
-"use client";
-
 import { motion } from "framer-motion";
 import PageTransition from "./components/PageTransition";
 import Link from "next/link";
 import Starfield from "./components/Starfield";
 import Planet from "./components/Planet";
 import SolarFlareLogo from "./components/SolarFlareLogo";
-
 
 export const metadata = {
   title: "SolarFlare",
@@ -41,19 +38,8 @@ export default function HomePage() {
           className="absolute bottom-20 left-16 w-32 h-32 bg-gradient-to-br from-blue-500 to-indigo-700 rounded-full blur-xl opacity-70 shadow-[0_0_50px_rgba(0,0,255,0.4)]"
         />
 
-{/* Glowing SolarFlare Logo */}
-<SolarFlareLogo />
-
-{/* Hero Title */}
-<motion.h1
-  initial={{ opacity: 0, scale: 0.7 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 1.2, ease: "easeOut" }}
-  className="text-6xl sm:text-7xl font-extrabold mb-6 text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]"
->
-  Welcome to <span className="text-orange-400 animate-pulse">SolarFlare</span>
-</motion.h1>
-
+        {/* Glowing SolarFlare Logo */}
+        <SolarFlareLogo />
 
         {/* Hero Title */}
         <motion.h1

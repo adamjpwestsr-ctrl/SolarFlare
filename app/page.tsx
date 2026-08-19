@@ -1,3 +1,5 @@
+///app/page.tsx
+
 import { motion } from "framer-motion";
 import PageTransition from "./components/PageTransition";
 import Link from "next/link";

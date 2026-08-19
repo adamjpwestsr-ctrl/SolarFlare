@@ -1,3 +1,5 @@
+///app/components/Planet.tsx
+
 "use client";
 
 import { useEffect, useRef } from "react";

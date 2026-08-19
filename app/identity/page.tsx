@@ -1,18 +1,27 @@
-"use client";
-
-import { useState } from "react";
 import NewExplorer from "./NewExplorer";
 import ReturningExplorer from "./ReturningExplorer";
 
 export const metadata = {
-  hideNav: true
+  hideNav: true,
+  title: "Cosmic Identity Terminal"
 };
 
 export default function IdentityPage() {
+  return (
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
+      <IdentitySelector />
+    </div>
+  );
+}
+
+// Client component moved OUTSIDE the page
+function IdentitySelector() {
+  "use client";
+
   const [mode, setMode] = useState<"new" | "return" | null>(null);
 
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6">
+    <>
       {!mode && (
         <>
           <h1 className="text-4xl font-bold mb-6">Cosmic Identity Terminal</h1>
@@ -38,6 +47,6 @@ export default function IdentityPage() {
 
       {mode === "new" && <NewExplorer />}
       {mode === "return" && <ReturningExplorer />}
-    </div>
+    </>
   );
 }

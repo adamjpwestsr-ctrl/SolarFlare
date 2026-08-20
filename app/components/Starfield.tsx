@@ -1,17 +1,23 @@
-///app/components/Starfield.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
 
-export default function Starfield() {
-  const canvasRef = useRef(null);
+interface StarfieldProps {
+  className?: string;
+}
+
+export default function Starfield({ className }: StarfieldProps) {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    if (!canvas) return;
 
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
 
     const stars = Array.from({ length: 200 }, () => ({
       x: Math.random() * width,
@@ -23,7 +29,7 @@ export default function Starfield() {
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, width, height);
 
-      stars.forEach(star => {
+      stars.forEach((star) => {
         star.z -= 2;
         if (star.z <= 0) star.z = width;
 
@@ -45,7 +51,7 @@ export default function Starfield() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-30"
+      className={className ?? "fixed inset-0 -z-30"}
     />
   );
 }

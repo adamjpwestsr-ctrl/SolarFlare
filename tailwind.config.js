@@ -6,6 +6,12 @@ module.exports = {
     "./lib/**/*.{js,ts,jsx,tsx}",
   ],
 
+module.exports = {
+  darkMode: "class",
+  // ...rest of config
+};
+
+
   theme: {
     extend: {
       colors: {

@@ -1,3 +1,18 @@
+:root {
+  --bg-space: #000000;
+  --text-light: #e5e5e5;
+  --accent-orange: #ff8c00;
+  --accent-purple: #a855f7;
+  --accent-blue: #3b82f6;
+}
+
+body {
+  background-color: var(--bg-space);
+  color: var(--text-light);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
 /* iPad breakpoint */
 @media (min-width: 768px) and (max-width: 1180px) {
   .ipad-grid {

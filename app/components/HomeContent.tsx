@@ -10,8 +10,15 @@ export default function HomeContent() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20 bg-black text-gray-200 overflow-hidden">
 
-      {/* Starfield Canvas */}
-      <Starfield className="fixed inset-0 -z-30 opacity-60" />
+      {/* Starfield Canvas — fades to subtle background */}
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0.3 }}
+        transition={{ delay: 3.5, duration: 1.5, ease: "easeOut" }}
+        className="fixed inset-0 -z-30"
+      >
+        <Starfield />
+      </motion.div>
 
       {/* Rotating 3D Planet */}
       <div className="absolute top-32 right-20 w-[220px] h-[220px]">
@@ -34,8 +41,10 @@ export default function HomeContent() {
         className="absolute bottom-24 left-16 w-28 h-28 bg-gradient-to-br from-blue-500 to-indigo-700 rounded-full blur-xl opacity-70 shadow-[0_0_40px_rgba(0,0,255,0.4)]"
       />
 
-      {/* Glowing SolarFlare Logo */}
-      <SolarFlareLogo />
+      {/* Glowing SolarFlare Logo — resized */}
+      <div className="w-[180px] h-[180px] mb-6">
+        <SolarFlareLogo />
+      </div>
 
       {/* Hero Title */}
       <motion.h1
@@ -59,32 +68,32 @@ export default function HomeContent() {
         awaits — filled with badges, discoveries, and adventures across the stars.
       </motion.p>
 
-      {/* CTA Buttons */}
+      {/* CTA Tiles */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.5 }}
-        className="flex flex-col sm:flex-row gap-4 mb-16"
+        className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16"
       >
         <Link
           href="/identity"
-          className="bg-gradient-to-r from-orange-500 to-yellow-500 text-black font-semibold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(255,165,0,0.6)] transition-transform hover:scale-105"
+          className="bg-gradient-to-br from-orange-500 to-yellow-500 text-black font-bold text-xl px-8 py-10 rounded-2xl shadow-[0_0_25px_rgba(255,165,0,0.6)] hover:scale-105 transition-transform hover:shadow-[0_0_35px_rgba(255,165,0,0.8)]"
         >
-          Begin Your Journey 🚀
+          🚀 Begin Your Journey
         </Link>
 
         <Link
           href="/daily"
-          className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(128,0,128,0.6)] transition-transform hover:scale-105"
+          className="bg-gradient-to-br from-purple-600 to-indigo-600 text-white font-bold text-xl px-8 py-10 rounded-2xl shadow-[0_0_25px_rgba(128,0,128,0.6)] hover:scale-105 transition-transform hover:shadow-[0_0_35px_rgba(128,0,128,0.8)]"
         >
-          Daily Discovery ✨
+          ✨ Daily Discovery
         </Link>
 
         <Link
           href="/quiz"
-          className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-[0_0_20px_rgba(0,0,255,0.6)] transition-transform hover:scale-105"
+          className="bg-gradient-to-br from-blue-600 to-cyan-500 text-white font-bold text-xl px-8 py-10 rounded-2xl shadow-[0_0_25px_rgba(0,0,255,0.6)] hover:scale-105 transition-transform hover:shadow-[0_0_35px_rgba(0,0,255,0.8)]"
         >
-          Quiz Hub 🧠
+          🧠 Quiz Hub
         </Link>
       </motion.div>
 

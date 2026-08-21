@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --bg-space: #000000;
   --text-light: #e5e5e5;
@@ -6,11 +10,70 @@
   --accent-blue: #3b82f6;
 }
 
+/* Base cosmic background */
 body {
   background-color: var(--bg-space);
   color: var(--text-light);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+}
+
+/* Animated nebula background */
+@keyframes nebulaShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.nebula-bg {
+  background: radial-gradient(circle at 20% 20%, rgba(88,28,135,0.6), transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(37,99,235,0.5), transparent 60%);
+  background-size: 200% 200%;
+  animation: nebulaShift 25s ease-in-out infinite;
+  opacity: 0.45;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+.sparkle {
+  animation: sparkle 2.5s infinite ease-in-out;
+}
+
+/* Mission tile styling */
+.mission-tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-tile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(255,255,255,0.25);
+}
+
+.mission-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mission-tile:hover::before {
+  opacity: 1;
+}
+
+/* Draggable badge glow */
+.badge-glow {
+  box-shadow: 0 0 30px rgba(255,255,255,0.6);
 }
 
 /* iPad breakpoint */
@@ -20,16 +83,13 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
-
   .ipad-card {
     padding: 32px;
     border-radius: 24px;
   }
-
   .ipad-text-xl {
     font-size: 1.75rem;
   }
-
   .ipad-text-2xl {
     font-size: 2.25rem;
   }
@@ -48,40 +108,4 @@ html, body {
   height: 100%;
   overscroll-behavior: none;
   touch-action: manipulation;
-}
-.theme-indigo {
-  --theme-color: #4f46e5;
-}
-
-.theme-purple {
-  --theme-color: #7c3aed;
-}
-
-.theme-blue {
-  --theme-color: #2563eb;
-}
-
-.theme-emerald {
-  --theme-color: #059669;
-}
-
-.theme-rose {
-  --theme-color: #e11d48;
-}
-
-.theme-amber {
-  --theme-color: #d97706;
-}
-
-/* Universal theme usage */
-.theme-bg {
-  background-color: var(--theme-color);
-}
-
-.theme-text {
-  color: var(--theme-color);
-}
-
-.theme-border {
-  border-color: var(--theme-color);
 }

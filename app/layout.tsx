@@ -1,35 +1,23 @@
 import "./globals.css";
-import NavBar from "./components/NavBar";
-import PageTransition from "./components/PageTransition";
-import { headers } from "next/headers";
+import NavBar from "@/components/NavBar";
+import PageTransition from "@/components/PageTransition";
+import HomeContent from "@/components/HomeContent";
 
-export default async function RootLayout({ children }) {
-  // FIX: headers() must be awaited
-  const headerList = await headers();
-  const pathname = headerList.get("x-pathname") || "";
+export default function RootLayout({ children }) {
 
-  const hideNav =
-    pathname.startsWith("/identity") ||
-    pathname.startsWith("/onboarding");
-
-  // Load explorer theme from localStorage (client-side only)
-  let themeClass = "";
-  if (typeof window !== "undefined") {
-    const raw = localStorage.getItem("solarflare_explorer");
-    if (raw) {
-      const explorer = JSON.parse(raw);
-      themeClass = `theme-${explorer.theme}`;
-    }
-  }
+  // Server-side only — DO NOT use localStorage or window here
+  // DO NOT await headers() — layouts must be synchronous
 
   return (
     <html lang="en">
-      <body className={`bg-black text-white min-h-screen ${themeClass}`}>
+      <body className="bg-black text-white min-h-screen">
+        {/* Page transitions + content */}
         <PageTransition>
           {children}
         </PageTransition>
 
-        {!hideNav && <NavBar />}
+        {/* Global navigation */}
+        <NavBar />
       </body>
     </html>
   );

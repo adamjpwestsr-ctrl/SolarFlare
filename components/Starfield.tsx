@@ -26,8 +26,9 @@ export default function Starfield({ className }: StarfieldProps) {
     }));
 
     function animate() {
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, width, height);
+      // transparent background, no black fill
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalCompositeOperation = "lighter";
 
       stars.forEach((star) => {
         star.z -= 2;
@@ -46,12 +47,21 @@ export default function Starfield({ className }: StarfieldProps) {
     }
 
     animate();
+
+    // handle resize
+    const handleResize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className={className ?? "fixed inset-0 -z-30"}
+      className={className ?? "absolute inset-0 -z-50 pointer-events-none"}
     />
   );
 }

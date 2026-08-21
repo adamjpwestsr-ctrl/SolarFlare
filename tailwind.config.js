@@ -1,17 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./lib/**/*.{js,ts,jsx,tsx}",
+    "./app/globals.css",
   ],
-
-module.exports = {
-  darkMode: "class",
-  // ...rest of config
-};
-
-
   theme: {
     extend: {
       colors: {
@@ -22,27 +17,22 @@ module.exports = {
         rose: require("tailwindcss/colors").rose,
         amber: require("tailwindcss/colors").amber,
       },
-
       borderRadius: {
         xl: "1rem",
         "2xl": "1.5rem",
         "3xl": "2rem",
       },
-
       boxShadow: {
         cosmic: "0 0 40px rgba(99, 102, 241, 0.4)",
       },
-
       screens: {
         ipad: { min: "768px", max: "1180px" },
         landscape: { raw: "(orientation: landscape)" },
       },
-
       animation: {
         fadeIn: "fadeIn 0.6s ease-out",
         pop: "pop 0.4s ease-out",
       },
-
       keyframes: {
         fadeIn: {
           "0%": { opacity: 0 },
@@ -55,17 +45,13 @@ module.exports = {
       },
     },
   },
-
   safelist: [
-    // Dynamic theme backgrounds
     "bg-indigo-600",
     "bg-purple-600",
     "bg-blue-600",
     "bg-emerald-600",
     "bg-rose-600",
     "bg-amber-600",
-
-    // Dynamic theme text colors
     "text-indigo-400",
     "text-purple-400",
     "text-blue-400",
@@ -73,6 +59,5 @@ module.exports = {
     "text-rose-400",
     "text-amber-400",
   ],
-
   plugins: [],
 };

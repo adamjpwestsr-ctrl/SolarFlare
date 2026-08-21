@@ -15,10 +15,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@/app/*": ["./app/*"],
-      "@/components/*": ["./components/*"],
-      "@/lib/*": ["./lib/*"],
-      "@/data/*": ["./data/*"]
+      "@app/*": ["./app/*"],
+      "@components/*": ["./components/*"],
+      "@lib/*": ["./lib/*"],
+      "@data/*": ["./data/*"]
     },
 
     "incremental": true,

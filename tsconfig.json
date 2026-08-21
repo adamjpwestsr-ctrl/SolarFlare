@@ -11,27 +11,35 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "baseUrl": ".", 
+
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
+      "@/app/*": ["./app/*"],
       "@/components/*": ["./components/*"],
       "@/lib/*": ["./lib/*"],
-      "@/app/*": ["./app/*"]
+      "@/data/*": ["./data/*"]
     },
+
     "incremental": true,
     "esModuleInterop": true,
     "plugins": [
-      {
-        "name": "next"
-      }
+      { "name": "next" }
     ]
   },
+
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    "app/**/*",
+    "components/**/*",
+    "lib/**/*",
+    "data/**/*"
   ],
-  "exclude": ["node_modules"]
+
+  "exclude": [
+    "node_modules",
+    ".next",
+    ".git",
+    ".vercel"
+  ]
 }

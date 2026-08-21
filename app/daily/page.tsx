@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import PageTransition from "@/app/components/PageTransition";
+import PageTransition from "@/components/PageTransition";
 import {
   getDailyFact,
   getStreakLocal,

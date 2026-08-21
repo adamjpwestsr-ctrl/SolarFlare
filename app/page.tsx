@@ -1,5 +1,5 @@
-import PageTransition from "./components/PageTransition";
-import HomeContent from "./components/HomeContent";
+import PageTransition from "@/components/PageTransition";
+import HomeContent from "@/components/HomeContent";
 
 export const metadata = {
   title: "SolarFlare",

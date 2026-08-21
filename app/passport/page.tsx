@@ -1,7 +1,7 @@
 "use client";
 
-import PageTransition from "@/app/components/PageTransition";
-import BadgeUnlockModal from "@/app/components/BadgeUnlockModal";
+import PageTransition from "@/components/PageTransition";
+import BadgeUnlockModal from "@/components/BadgeUnlockModal";
 import { useEffect, useState } from "react";
 import { getBadges, getExplorerBadges } from "@/lib/badgeManager";
 import { getExplorerLocal } from "@/lib/identity";

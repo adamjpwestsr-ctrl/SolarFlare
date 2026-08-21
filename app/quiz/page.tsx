@@ -1,6 +1,6 @@
 "use client";
 
-import PageTransition from "@/app/components/PageTransition";
+import PageTransition from "@/components/PageTransition";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import quizzes from "@/data/quizzes.json";

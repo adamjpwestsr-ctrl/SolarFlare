@@ -1,6 +1,6 @@
 "use client";
 
-import PageTransition from "@/app/components/PageTransition";
+import PageTransition from "@/components/PageTransition";
 import { useState } from "react";
 import quizzes from "@/data/quizzes.json";
 import QuizQuestion from "./QuizQuestion";

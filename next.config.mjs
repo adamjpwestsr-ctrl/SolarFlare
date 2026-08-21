@@ -4,12 +4,10 @@ const nextConfig = {
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
   },
-};
 
-export default nextConfig;
-
-export default {
   experimental: {
     optimizeCss: false
   }
 };
+
+export default nextConfig;

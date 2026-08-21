@@ -14,32 +14,23 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@app/*": ["./app/*"],
-      "@components/*": ["./components/*"],
-      "@lib/*": ["./lib/*"],
-      "@data/*": ["./data/*"]
+      "@/*": ["./*"]
     },
 
     "incremental": true,
     "esModuleInterop": true,
     "plugins": [
-      { "name": "next" }
+      {
+        "name": "next"
+      }
     ]
   },
-
   "include": [
     "next-env.d.ts",
-    "app/**/*",
-    "components/**/*",
-    "lib/**/*",
-    "data/**/*"
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
-
-  "exclude": [
-    "node_modules",
-    ".next",
-    ".git",
-    ".vercel"
-  ]
+  "exclude": ["node_modules"]
 }

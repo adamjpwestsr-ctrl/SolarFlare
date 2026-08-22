@@ -2,7 +2,7 @@ import factsData from "@/data/facts.json";
 
 export interface QuizQuestion {
   question: string;
-  correct: string;
+  correctAnswers: string[];
   options: string[];
 }
 
@@ -24,23 +24,30 @@ export function generateQuizForCategory(
 
   const facts = categoryData.facts;
 
-  const questions: QuizQuestion[] = facts.map((fact) => {
-    const correct = fact;
+  // Remove duplicate facts
+  const uniqueFacts = [...new Set(facts)];
 
-    const wrongOptions = shuffle(
-      facts.filter((f) => f !== fact)
-    ).slice(0, 3);
+  // Pull wrong answers from ALL OTHER categories
+  const allOtherFacts = factsData.facts
+    .filter((f) => f.category !== categoryData.category)
+    .flatMap((f) => f.facts);
+
+  const questions: QuizQuestion[] = uniqueFacts.map((fact) => {
+    const correctAnswers = [fact];
+
+    // Wrong answers from other categories (much better variety)
+    const wrongOptions = shuffle(allOtherFacts).slice(0, 3);
+
+    // Unique question prompt per fact
+    const questionText = `Which statement about ${categoryData.category} is correct?`;
 
     return {
-      question: `Which of the following is true about ${categoryData.category}?`,
-      correct,
-      options: shuffle([correct, ...wrongOptions])
+      question: questionText,
+      correctAnswers,
+      options: shuffle([...correctAnswers, ...wrongOptions])
     };
   });
 
-  const max = Math.min(count, questions.length);
-  const min = Math.min(5, max);
-  const target = Math.max(min, Math.min(10, max));
-
-  return shuffle(questions).slice(0, target);
+  // Shuffle and slice unique questions
+  return shuffle(questions).slice(0, count);
 }

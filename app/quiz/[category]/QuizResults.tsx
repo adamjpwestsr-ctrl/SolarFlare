@@ -12,7 +12,7 @@ export default function QuizResults({ score, total, category }) {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="bg-gray-900 p-8 md:p-12 rounded-3xl shadow-xl 
-                 max-w-xl mx-auto text-center ipad-card landscape-center"
+                 max-w-xl mx-auto text-center ipad-card landscape-center pb-24"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.6 }}
@@ -28,7 +28,7 @@ export default function QuizResults({ score, total, category }) {
       </h1>
 
       <p className="text-lg md:text-xl opacity-80 mb-6">
-        You finished the <span className="font-bold">{category}</span> quiz.
+        You finished the <span className="font-bold">{decodeURIComponent(category)}</span> quiz.
       </p>
 
       <motion.div

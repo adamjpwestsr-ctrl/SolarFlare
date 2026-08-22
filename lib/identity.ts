@@ -2,25 +2,27 @@ import { supabase } from "@/lib/supabase";
 
 const LOCAL_KEY = "solarflare_explorer";
 
-// Create a new explorer
+// Create a new explorer — guaranteed unique per device
 export async function createExplorer(name: string) {
-  const { data, error } = await supabase
-    .from("explorers")
-    .insert([
-      {
-        name,
-        avatar: "🚀",
-        theme: "indigo",
-        title: "Explorer"
-      }
-    ])
-    .select()
-    .single();
+  const id = crypto.randomUUID(); // 🔥 Unique per device
 
+  const explorer = {
+    id,
+    name,
+    avatar: "🚀",
+    theme: "indigo",
+    title: "Explorer",
+    created_at: new Date().toISOString()
+  };
+
+  // Save locally
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(explorer));
+
+  // Save to Supabase
+  const { error } = await supabase.from("explorers").insert(explorer);
   if (error) throw error;
 
-  localStorage.setItem(LOCAL_KEY, JSON.stringify(data));
-  return data;
+  return explorer;
 }
 
 // Get active explorer from localStorage
@@ -28,31 +30,6 @@ export function getExplorerLocal() {
   if (typeof window === "undefined") return null;
   const raw = localStorage.getItem(LOCAL_KEY);
   return raw ? JSON.parse(raw) : null;
-}
-
-// Switch active explorer
-export async function setActiveExplorer(id: string) {
-  const { data, error } = await supabase
-    .from("explorers")
-    .select("*")
-    .eq("id", id)
-    .single();
-
-  if (error) throw error;
-
-  localStorage.setItem(LOCAL_KEY, JSON.stringify(data));
-  return data;
-}
-
-// List all explorers
-export async function listExplorers() {
-  const { data, error } = await supabase
-    .from("explorers")
-    .select("*")
-    .order("created_at", { ascending: true });
-
-  if (error) throw error;
-  return data;
 }
 
 // Update explorer settings (name, avatar, theme, title)
@@ -70,14 +47,10 @@ export async function updateExplorerSettings(id: string, settings: any) {
   localStorage.setItem(LOCAL_KEY, JSON.stringify(data));
   return data;
 }
-// Find explorer by name
-export async function findExplorer(name: string) {
-  const { data, error } = await supabase
-    .from("explorers")
-    .select("*")
-    .ilike("name", name); // case-insensitive match
 
-  if (error) throw error;
+// ❌ Removed: setActiveExplorer()
+// ❌ Removed: listExplorers()
+// ❌ Removed: findExplorer()
 
-  return data && data.length > 0 ? data[0] : null;
-}
+// These functions allowed cross-device identity bleed.
+// They must not exist in a kid-safe app.

@@ -21,8 +21,7 @@ export default function HomeContent() {
   };
 
   return (
-    <main className="relative min-h-screen text-gray-200 overflow-hidden pb-20">
-
+    <main className="relative min-h-screen text-gray-200 overflow-hidden pb-32">
       {/* 🌠 Starfield */}
       <motion.div
         initial={{ opacity: 1 }}
@@ -65,7 +64,6 @@ export default function HomeContent() {
 
       {/* 🌍 MISSION TILES */}
       <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto px-4 mt-12">
-
         <Link href="/daily" className="group block">
           <div
             onMouseEnter={playHoverSound}
@@ -98,7 +96,6 @@ export default function HomeContent() {
             <p className="text-sm text-gray-800 mt-2">Create your explorer profile.</p>
           </div>
         </Link>
-
       </section>
 
       {/* ========================= */}
@@ -129,6 +126,7 @@ export default function HomeContent() {
         <Link href="/daily">✨ Daily</Link>
         <Link href="/explorers">🚀 Explorers</Link>
         <Link href="/settings">⚙️ Settings</Link>
+        <Link href="/home">🏠 Home</Link>
       </footer>
 
       {/* Footer Text */}

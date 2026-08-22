@@ -6,10 +6,23 @@ import { generateQuizForCategory } from "@/lib/quizGenerator";
 import QuizAnswerAnimation from "@/components/QuizAnswerAnimation";
 import { calculateXP } from "@/lib/quizXP";
 import { saveQuizAttempt } from "@/lib/quizHistory";
+import { getExplorerLocal } from "@/lib/identity";
+
+// Normalize answers for accurate comparison
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[.,!?]/g, "")
+    .replace(/\s+/g, " ");
+}
 
 export default function QuizCategoryPage({ params }) {
   const router = useRouter();
   const category = decodeURIComponent(params.category);
+
+  const explorer = getExplorerLocal();
+  const explorerId = explorer?.id || "demo-explorer";
 
   const questions = useMemo(() => generateQuizForCategory(category, 10), [category]);
 
@@ -29,40 +42,49 @@ export default function QuizCategoryPage({ params }) {
   }
 
   async function handleAnswer(opt) {
-    const isCorrect = opt === current.correct;
+    const normalizedUser = normalize(opt);
+
+    const correctAnswers = current.correctAnswers || [current.correct];
+    const normalizedCorrect = correctAnswers.map(normalize);
+
+    const isCorrect = normalizedCorrect.includes(normalizedUser);
 
     // Flash animation
     setFlash(isCorrect ? "correct" : "incorrect");
     setTimeout(() => setFlash(null), 400);
 
     // Save answer
-    const updated = [...answers, { correct: isCorrect }];
+    const updated = [
+      ...answers,
+      {
+        correct: isCorrect,
+        userAnswer: opt,
+        correctAnswers
+      }
+    ];
     setAnswers(updated);
 
     // Next question or finish
     if (index + 1 < questions.length) {
       setIndex(index + 1);
     } else {
-      // Quiz finished → calculate XP + save history
-      const correctCount = updated.filter(a => a.correct).length;
+      const correctCount = updated.filter((a) => a.correct).length;
       const total = updated.length;
       const score = Math.round((correctCount / total) * 100);
       const xp = calculateXP(correctCount, total);
 
-      // Save quiz attempt
       await saveQuizAttempt({
-        explorerId: "demo-explorer", // Replace with real explorer ID
+        explorerId,
         category,
         score,
         correct: correctCount,
         total
       });
 
-      // Redirect to results page
       router.push(
         `/quiz/${encodeURIComponent(category)}/results?answers=${JSON.stringify(
           updated
-        )}&explorerId=demo-explorer&category=${encodeURIComponent(category)}`
+        )}&explorerId=${explorerId}&category=${encodeURIComponent(category)}`
       );
     }
   }

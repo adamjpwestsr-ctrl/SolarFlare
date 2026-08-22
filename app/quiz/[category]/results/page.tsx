@@ -9,8 +9,13 @@ import Link from "next/link";
 export default function QuizResultsPage({ searchParams }) {
   const { answers, explorerId, category } = searchParams;
 
-  // answers comes in as a JSON string → parse it
-  const parsedAnswers = JSON.parse(answers);
+  // Decode and parse answers safely
+  let parsedAnswers = [];
+  try {
+    parsedAnswers = JSON.parse(decodeURIComponent(answers));
+  } catch (e) {
+    console.error("Failed to parse answers:", e);
+  }
 
   const [badge, setBadge] = useState(null);
   const result = calculateScore(parsedAnswers);
@@ -24,7 +29,7 @@ export default function QuizResultsPage({ searchParams }) {
   }, [explorerId, result.score]);
 
   return (
-    <div className="min-h-screen bg-black text-white p-10 text-center relative">
+    <div className="min-h-screen bg-black text-white p-10 text-center relative pb-24">
 
       {/* Badge celebration overlay */}
       {badge && (

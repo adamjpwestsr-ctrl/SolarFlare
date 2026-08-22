@@ -1,6 +1,5 @@
-"use client";
-
 export const dynamic = "force-dynamic";
+"use client";
 
 import PageTransition from "@/components/PageTransition";
 import BadgeUnlockModal from "@/components/BadgeUnlockModal";
@@ -10,6 +9,7 @@ import { getExplorerLocal } from "@/lib/identity";
 import { getDailyStamps } from "@/lib/daily";
 import StampCard from "./StampCard";
 import DailyStampCard from "./DailyStampCard";
+
 
 export default function PassportPage() {
   const [badges, setBadges] = useState([]);

@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 "use client";
 
 import PageTransition from "@/components/PageTransition";
@@ -10,8 +9,7 @@ import { getDailyStamps } from "@/lib/daily";
 import StampCard from "./StampCard";
 import DailyStampCard from "./DailyStampCard";
 
-
-export default function PassportPage() {
+export default function PassportPageClient() {
   const [badges, setBadges] = useState([]);
   const [stamps, setStamps] = useState([]);
   const [unlocking, setUnlocking] = useState(null);
@@ -47,7 +45,6 @@ export default function PassportPage() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-black text-white p-6 landscape-center">
-        {/* EXPLORER HEADER */}
         <div className="text-center mb-10">
           <div className="text-6xl md:text-7xl mb-2">
             {explorer.avatar}
@@ -60,7 +57,6 @@ export default function PassportPage() {
           </p>
         </div>
 
-        {/* BADGES */}
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center theme-text">
           Badges
         </h2>
@@ -71,7 +67,6 @@ export default function PassportPage() {
           ))}
         </div>
 
-        {/* DAILY DISCOVERY STAMPS */}
         <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-center theme-text">
           Daily Discovery Stamps
         </h2>
@@ -82,7 +77,6 @@ export default function PassportPage() {
           ))}
         </div>
 
-        {/* UNLOCK MODAL */}
         {unlocking && (
           <BadgeUnlockModal
             badge={unlocking}

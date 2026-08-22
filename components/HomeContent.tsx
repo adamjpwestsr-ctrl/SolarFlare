@@ -46,9 +46,7 @@ export default function HomeContent() {
         className="absolute inset-0 -z-30 bg-orange-500 blur-[180px] opacity-20"
       />
 
-      {/* ========================= */}
       {/* 🚀 HERO SECTION */}
-      {/* ========================= */}
       <section className="space-y-6 max-w-6xl mx-auto px-4 pt-16">
         <div className="rounded-2xl border border-slate-800 bg-gradient-to-br from-slate-900/80 via-slate-900/40 to-indigo-700/30 p-8 shadow-xl shadow-indigo-900/40 relative overflow-hidden">
           <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 bg-indigo-500/20 blur-3xl" />
@@ -65,42 +63,42 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ========================= */}
       {/* 🌍 MISSION TILES */}
-      {/* ========================= */}
       <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto px-4 mt-12">
-        <Link href="/daily" className="block">
+
+        <Link href="/daily" className="group block">
           <div
             onMouseEnter={playHoverSound}
             onTouchStart={playHoverSound}
-            className="rounded-2xl border border-slate-800 bg-gradient-to-br from-purple-700/80 to-indigo-600/40 p-6 shadow-lg hover:shadow-cosmic hover:brightness-110 transition-transform"
+            className="rounded-2xl border border-slate-800 bg-gradient-to-br from-purple-700/80 to-indigo-600/40 p-6 shadow-lg transition-all group-hover:shadow-cosmic group-hover:brightness-110 cursor-pointer"
           >
             <h3 className="text-lg font-semibold text-white">✨ Daily Discovery</h3>
             <p className="text-sm text-gray-200 mt-2">Unlock a new fact each day.</p>
           </div>
         </Link>
 
-        <Link href="/quiz" className="block">
+        <Link href="/quiz" className="group block">
           <div
             onMouseEnter={playHoverSound}
             onTouchStart={playHoverSound}
-            className="rounded-2xl border border-slate-800 bg-gradient-to-br from-blue-600/80 to-cyan-500/40 p-6 shadow-lg hover:shadow-cosmic hover:brightness-110 transition-transform"
+            className="rounded-2xl border border-slate-800 bg-gradient-to-br from-blue-600/80 to-cyan-500/40 p-6 shadow-lg transition-all group-hover:shadow-cosmic group-hover:brightness-110 cursor-pointer"
           >
             <h3 className="text-lg font-semibold text-white">🧠 Quiz Hub</h3>
             <p className="text-sm text-gray-200 mt-2">Test your cosmic knowledge.</p>
           </div>
         </Link>
 
-        <Link href="/identity" className="block">
+        <Link href="/identity" className="group block">
           <div
             onMouseEnter={playHoverSound}
             onTouchStart={playHoverSound}
-            className="rounded-2xl border border-slate-800 bg-gradient-to-br from-orange-500/80 to-yellow-500/40 p-6 shadow-lg hover:shadow-cosmic hover:brightness-110 transition-transform"
+            className="rounded-2xl border border-slate-800 bg-gradient-to-br from-orange-500/80 to-yellow-500/40 p-6 shadow-lg transition-all group-hover:shadow-cosmic group-hover:brightness-110 cursor-pointer"
           >
             <h3 className="text-lg font-semibold text-black">🚀 Identity</h3>
             <p className="text-sm text-gray-800 mt-2">Create your explorer profile.</p>
           </div>
         </Link>
+
       </section>
 
       {/* ========================= */}

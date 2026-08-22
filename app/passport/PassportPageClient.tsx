@@ -10,13 +10,21 @@ import StampCard from "./StampCard";
 import DailyStampCard from "./DailyStampCard";
 
 export default function PassportPageClient() {
+  const [explorer, setExplorer] = useState<any | null>(null);
   const [badges, setBadges] = useState([]);
   const [stamps, setStamps] = useState([]);
   const [unlocking, setUnlocking] = useState(null);
 
-  const explorer = getExplorerLocal();
-
+  // Load explorer safely from localStorage
   useEffect(() => {
+    const local = getExplorerLocal();
+    setExplorer(local);
+  }, []);
+
+  // Load badges + stamps once explorer is ready
+  useEffect(() => {
+    if (!explorer) return;
+
     async function load() {
       const allBadges = getBadges();
       const earned = await getExplorerBadges(explorer.id);
@@ -36,7 +44,18 @@ export default function PassportPageClient() {
     }
 
     load();
-  }, []);
+  }, [explorer]);
+
+  // Prevent crash — show loading until explorer exists
+  if (!explorer) {
+    return (
+      <PageTransition>
+        <div className="min-h-screen bg-black text-white p-6 flex items-center justify-center">
+          <p className="opacity-70 text-xl">Loading Passport…</p>
+        </div>
+      </PageTransition>
+    );
+  }
 
   function handleUnlock(badge) {
     setUnlocking(badge);
@@ -45,6 +64,7 @@ export default function PassportPageClient() {
   return (
     <PageTransition>
       <div className="min-h-screen bg-black text-white p-6 landscape-center">
+        {/* EXPLORER HEADER */}
         <div className="text-center mb-10">
           <div className="text-6xl md:text-7xl mb-2">
             {explorer.avatar}
@@ -57,6 +77,7 @@ export default function PassportPageClient() {
           </p>
         </div>
 
+        {/* BADGES */}
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center theme-text">
           Badges
         </h2>
@@ -67,6 +88,7 @@ export default function PassportPageClient() {
           ))}
         </div>
 
+        {/* DAILY DISCOVERY STAMPS */}
         <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-6 text-center theme-text">
           Daily Discovery Stamps
         </h2>
@@ -77,6 +99,7 @@ export default function PassportPageClient() {
           ))}
         </div>
 
+        {/* UNLOCK MODAL */}
         {unlocking && (
           <BadgeUnlockModal
             badge={unlocking}

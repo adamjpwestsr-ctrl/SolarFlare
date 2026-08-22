@@ -24,7 +24,6 @@
         "Solar storms can disrupt satellites and power grids."
       ]
     },
-
     {
       "category": "Mercury",
       "facts": [
@@ -32,7 +31,7 @@
         "Mercury has no atmosphere to trap heat.",
         "Mercury experiences extreme temperature swings.",
         "A day on Mercury lasts longer than a year on Mercury.",
-               "Mercury has been visited by only two spacecraft: Mariner 10 and MESSENGER.",
+        "Mercury has been visited by only two spacecraft: Mariner 10 and MESSENGER.",
         "Mercury has a large iron core.",
         "Mercury has ice in permanently shadowed craters.",
         "Mercury has no moons.",
@@ -40,7 +39,6 @@
         "Mercury’s surface is covered in craters."
       ]
     },
-
     {
       "category": "Venus",
       "facts": [
@@ -56,7 +54,6 @@
         "Venus has hurricane‑force winds in its upper atmosphere."
       ]
     },
-
     {
       "category": "Earth",
       "facts": [
@@ -76,7 +73,6 @@
         "Earth’s oceans hold 97% of all water on the planet."
       ]
     },
-
     {
       "category": "Moon",
       "facts": [
@@ -101,7 +97,6 @@
         "The Moon’s orbit is slightly tilted, causing eclipses."
       ]
     },
-
     {
       "category": "Mars",
       "facts": [
@@ -126,7 +121,6 @@
         "Mars has magnetic patches instead of a global magnetic field."
       ]
     },
-
     {
       "category": "Asteroid Belt",
       "facts": [
@@ -142,7 +136,6 @@
         "The asteroid belt formed 4.6 billion years ago."
       ]
     },
-
     {
       "category": "Jupiter",
       "facts": [
@@ -162,7 +155,6 @@
         "Some of Jupiter’s moons may have hidden oceans."
       ]
     },
-
     {
       "category": "Saturn",
       "facts": [
@@ -187,7 +179,6 @@
         "Saturn’s moon Enceladus may have hydrothermal vents."
       ]
     },
-
     {
       "category": "Uranus",
       "facts": [
@@ -207,7 +198,6 @@
         "Uranus is colder than any other planet."
       ]
     },
-
     {
       "category": "Neptune",
       "facts": [
@@ -227,7 +217,6 @@
         "A year on Neptune lasts 165 Earth years."
       ]
     },
-
     {
       "category": "Dwarf Planets",
       "facts": [
@@ -243,7 +232,6 @@
         "Dwarf planets are round but have not cleared their orbits."
       ]
     },
-
     {
       "category": "Comets",
       "facts": [
@@ -259,7 +247,6 @@
         "Comets travel on long elliptical orbits."
       ]
     },
-
     {
       "category": "Stars",
       "facts": [
@@ -279,7 +266,6 @@
         "Some stars spin faster than a blender."
       ]
     },
-
     {
       "category": "Galaxies",
       "facts": [
@@ -304,7 +290,6 @@
         "Galaxies can be distorted by gravitational interactions."
       ]
     },
-
     {
       "category": "Nebulae",
       "facts": [
@@ -329,7 +314,6 @@
         "Nebulae can be remnants of ancient supernova explosions."
       ]
     },
-
     {
       "category": "Black Holes",
       "facts": [
@@ -349,7 +333,6 @@
         "Tiny black holes might exist — smaller than atoms."
       ]
     },
-
     {
       "category": "Spacecraft",
       "facts": [
@@ -378,7 +361,6 @@
         "Some spacecraft have parachutes the size of buildings."
       ]
     },
-
     {
       "category": "Cosmology",
       "facts": [
@@ -403,64 +385,65 @@
         "Some theories suggest multiple universes may exist."
       ]
     },
-
-{
-  "category": "Exoplanets",
-  "facts": [
-    "Exoplanets orbit stars outside our solar system.",
-    "Some exoplanets orbit two stars at once.",
-    "Hot Jupiters are gas giants that orbit extremely close to their stars.",
-    "Super-Earths are larger than Earth but smaller than Neptune.",
-    "The Kepler Space Telescope discovered thousands of exoplanets.",
-    "Some exoplanets may be in the habitable zone.",
-    "Some exoplanets have extremely short orbital periods.",
-    "Exoplanet atmospheres can be studied using spectroscopy.",
-    "There may be billions of exoplanets in the Milky Way.",
-    "Some exoplanets may have oceans of lava."
-  ]
-},
-{
-  "category": "Astrobiology",
-  "facts": [
-    "Astrobiology studies life in the universe.",
-    "Life may exist in underground oceans on icy moons.",
-    "Extremophiles on Earth can survive boiling water and radiation.",
-    "Mars once had conditions suitable for life.",
-    "Europa’s ocean may contain more water than Earth.",
-    "Some microbes can survive in space for short periods.",
-    "Life may exist in methane lakes on Titan.",
-    "Organic molecules have been found in comets.",
-    "The building blocks of life exist in interstellar clouds.",
-    "Astrobiologists search for biosignatures on distant planets."
-  ]
-},
-{
-  "category": "Astronomy Tools",
-  "facts": [
-    "Telescopes collect light to reveal distant objects.",
-    "Radio telescopes detect invisible radio waves.",
-    "Spectrometers analyze the colors of light.",
-    "Space telescopes avoid atmospheric distortion.",
-    "Adaptive optics correct for Earth’s atmosphere.",
-    "Astronomers use star charts to map the sky.",
-    "Interferometers combine multiple telescopes.",
-    "Astronomy apps help people find constellations.",
-    "Solar filters protect telescopes from intense sunlight.",
-    "Observatories are often built on mountains."
-  ]
-},
-{
-  "category": "Cosmic Phenomena",
-  "facts": [
-    "Auroras occur when solar wind hits Earth’s atmosphere.",
-    "Quasars are extremely bright objects powered by black holes.",
-    "Pulsars spin rapidly and emit beams of radiation.",
-    "Gamma-ray bursts are the brightest explosions in the universe.",
-    "Solar eclipses occur when the Moon blocks the Sun.",
-    "Supernovae can outshine entire galaxies.",
-    "Meteor showers occur when Earth passes through comet debris.",
-    "Cosmic rays are high-energy particles from space.",
-    "Gravitational waves ripple through spacetime.",
-    "Stellar nurseries create new stars."
+    {
+      "category": "Exoplanets",
+      "facts": [
+        "Exoplanets orbit stars outside our solar system.",
+        "Some exoplanets orbit two stars at once.",
+        "Hot Jupiters are gas giants that orbit extremely close to their stars.",
+        "Super-Earths are larger than Earth but smaller than Neptune.",
+               "The Kepler Space Telescope discovered thousands of exoplanets.",
+        "Some exoplanets may be in the habitable zone.",
+        "Some exoplanets have extremely short orbital periods.",
+        "Exoplanet atmospheres can be studied using spectroscopy.",
+        "There may be billions of exoplanets in the Milky Way.",
+        "Some exoplanets may have oceans of lava."
+      ]
+    },
+    {
+      "category": "Astrobiology",
+      "facts": [
+        "Astrobiology studies life in the universe.",
+        "Life may exist in underground oceans on icy moons.",
+        "Extremophiles on Earth can survive boiling water and radiation.",
+        "Mars once had conditions suitable for life.",
+        "Europa’s ocean may contain more water than Earth.",
+        "Some microbes can survive in space for short periods.",
+        "Life may exist in methane lakes on Titan.",
+        "Organic molecules have been found in comets.",
+        "The building blocks of life exist in interstellar clouds.",
+        "Astrobiologists search for biosignatures on distant planets."
+      ]
+    },
+    {
+      "category": "Astronomy Tools",
+      "facts": [
+        "Telescopes collect light to reveal distant objects.",
+        "Radio telescopes detect invisible radio waves.",
+        "Spectrometers analyze the colors of light.",
+        "Space telescopes avoid atmospheric distortion.",
+        "Adaptive optics correct for Earth’s atmosphere.",
+        "Astronomers use star charts to map the sky.",
+        "Interferometers combine multiple telescopes.",
+        "Astronomy apps help people find constellations.",
+        "Solar filters protect telescopes from intense sunlight.",
+        "Observatories are often built on mountains."
+      ]
+    },
+    {
+      "category": "Cosmic Phenomena",
+      "facts": [
+        "Auroras occur when solar wind hits Earth’s atmosphere.",
+        "Quasars are extremely bright objects powered by black holes.",
+        "Pulsars spin rapidly and emit beams of radiation.",
+        "Gamma-ray bursts are the brightest explosions in the universe.",
+        "Solar eclipses occur when the Moon blocks the Sun.",
+        "Supernovae can outshine entire galaxies.",
+        "Meteor showers occur when Earth passes through comet debris.",
+        "Cosmic rays are high-energy particles from space.",
+        "Gravitational waves ripple through spacetime.",
+        "Stellar nurseries create new stars."
+      ]
+    }
   ]
 }

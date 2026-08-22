@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { findExplorer } from "@/lib/identity";
+import { useState, useEffect } from "react";
+import { getExplorerLocal } from "@/lib/identity";
 import CosmicIDCard from "./CosmicIDCard";
 
 export default function ReturningExplorer() {
@@ -9,13 +9,19 @@ export default function ReturningExplorer() {
   const [explorer, setExplorer] = useState(null);
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    // Automatically load local explorer if one exists
+    const localExplorer = getExplorerLocal();
+    if (localExplorer) setExplorer(localExplorer);
+  }, []);
+
   function handleReturn() {
-    const found = findExplorer(name.trim());
-    if (!found) {
+    const localExplorer = getExplorerLocal();
+    if (!localExplorer || localExplorer.name.trim().toLowerCase() !== name.trim().toLowerCase()) {
       setError("Explorer not found. Try again.");
       return;
     }
-    setExplorer(found);
+    setExplorer(localExplorer);
   }
 
   if (explorer) return <CosmicIDCard explorer={explorer} />;

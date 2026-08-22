@@ -5,26 +5,39 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center relative overflow-hidden">
+    <main className="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden">
 
-      {/* Cosmic Glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-indigo-900/40 to-black opacity-70" />
+      {/* Full-page astronaut background */}
+      <img
+        src="/images/astronaut-holo.png"
+        alt="Astronaut holding holographic signs"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
 
-      {/* Astronaut */}
+      {/* Overlay gradient for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+
+      {/* Clickable holographic panels */}
+      <Link
+        href="/about"
+        className="absolute left-[calc(50%-220px)] top-[45%] w-[180px] h-[80px] hover:shadow-[0_0_25px_rgba(0,255,255,0.6)] rounded-xl"
+        aria-label="About SolarFlare"
+      />
+      <Link
+        href="/home"
+        className="absolute left-[calc(50%+40px)] top-[45%] w-[180px] h-[80px] hover:shadow-[0_0_25px_rgba(0,255,255,0.6)] rounded-xl"
+        aria-label="Enter SolarFlare"
+      />
+
+      {/* Animated content overlay */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="flex flex-col items-center text-center px-6"
+        className="relative z-10 flex flex-col items-center text-center px-6"
       >
-        <img
-          src="/images/astronaut-holo.png"
-          alt="Astronaut"
-          className="w-72 h-auto mb-10 drop-shadow-[0_0_35px_rgba(0,200,255,0.5)]"
-        />
-
-        {/* Floating Holographic Panels */}
-        <div className="flex flex-col gap-6">
+        {/* Optional fallback buttons for mobile */}
+        <div className="flex flex-col gap-6 mt-96">
           <Link
             href="/about"
             className="px-8 py-4 rounded-xl text-xl font-bold shadow-lg

@@ -27,7 +27,12 @@ export default function QuizResultsPage({ searchParams }) {
     <div className="min-h-screen bg-black text-white p-10 text-center relative">
 
       {/* Badge celebration overlay */}
-      {badge && <BadgeEarnedOverlay badge={badge} />}
+      {badge && (
+        <BadgeEarnedOverlay
+          badge={badge}
+          onClose={() => setBadge(null)}
+        />
+      )}
 
       <h1 className="text-4xl font-bold theme-text mb-6">
         Quiz Results: {decodeURIComponent(category)}

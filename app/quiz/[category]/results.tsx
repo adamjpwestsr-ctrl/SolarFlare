@@ -1,52 +1,69 @@
 "use client";
 
-import React from "react";
-import { unlockBadge } from "@/lib/badgeManager";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { calculateScore } from "@/lib/quizScoring";
+import { unlockQuizBadge } from "@/lib/badgeManager";
+import BadgeEarnedOverlay from "@/components/BadgeEarnedOverlay";
+import Link from "next/link";
 
-export default function QuizResults({ score, category, explorerId }) {
-  const passed = score >= 80;
+export default function QuizResultsPage({ searchParams }) {
+  const { answers, explorerId, category } = searchParams;
 
-  // FIX: unlockBadge requires explorerId + category
-  // FIX: unlockBadge is async → must await
-  const getBadge = async () => {
-    if (!passed) return null;
-    return await unlockBadge(explorerId, category);
-  };
+  // answers comes in as a JSON string → parse it
+  const parsedAnswers = JSON.parse(answers);
 
-  const [badge, setBadge] = React.useState(null);
+  const [badge, setBadge] = useState(null);
+  const result = calculateScore(parsedAnswers);
 
-  React.useEffect(() => {
-    getBadge().then(setBadge);
-  }, [passed, explorerId, category]);
+  useEffect(() => {
+    async function checkBadge() {
+      const earned = await unlockQuizBadge(explorerId, result.score);
+      if (earned) setBadge(earned);
+    }
+    checkBadge();
+  }, [explorerId, result.score]);
 
   return (
-    <div className="text-center p-10">
-      <h1 className="text-4xl font-bold mb-6">
-        {passed ? "Mission Success!" : "Mission Incomplete"}
+    <div className="min-h-screen bg-black text-white p-10 text-center relative">
+
+      {/* Badge celebration overlay */}
+      {badge && <BadgeEarnedOverlay badge={badge} />}
+
+      <h1 className="text-4xl font-bold theme-text mb-6">
+        Quiz Results: {decodeURIComponent(category)}
       </h1>
 
-      <p className="text-xl mb-6">
-        You scored {score}%
-      </p>
-
-      {passed && badge && (
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="bg-indigo-700 p-6 rounded-3xl inline-block shadow-2xl"
-        >
-          <div className="text-6xl mb-4">{badge.icon}</div>
-          <h2 className="text-2xl font-bold">{badge.name}</h2>
-          <p className="opacity-80 mt-2">Added to your Cosmic Passport</p>
-        </motion.div>
-      )}
-
-      {!passed && (
-        <p className="text-lg opacity-70 mt-4">
-          Study the facts and try again
+      <div className="bg-white/10 p-6 rounded-2xl border border-white/20 max-w-xl mx-auto">
+        <p className="text-2xl mb-4">
+          You scored <span className="font-bold">{result.score}%</span>
         </p>
-      )}
+
+        <p className="text-lg opacity-80 mb-6">
+          {result.correct} correct out of {result.total}
+        </p>
+
+        {badge && (
+          <div className="mt-6 text-xl">
+            🎉 Badge Earned: <span className="font-bold">{badge.name}</span>
+          </div>
+        )}
+      </div>
+
+      <div className="mt-10 flex flex-col gap-4 items-center">
+        <Link
+          href={`/quiz/${encodeURIComponent(category)}`}
+          className="bg-indigo-700 hover:bg-indigo-600 px-6 py-3 rounded-xl text-lg"
+        >
+          Try Again
+        </Link>
+
+        <Link
+          href="/quiz"
+          className="text-indigo-400 hover:text-indigo-300 text-lg"
+        >
+          ← Back to Quiz Hub
+        </Link>
+      </div>
     </div>
   );
 }

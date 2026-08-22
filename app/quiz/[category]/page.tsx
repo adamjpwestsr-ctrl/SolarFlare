@@ -1,47 +1,111 @@
 "use client";
 
-import PageTransition from "@/components/PageTransition";
-import { useState } from "react";
-import quizzes from "@/data/quizzes.json";
-import QuizQuestion from "./QuizQuestion";
-import QuizResults from "./QuizResults";
+import { useState, useMemo } from "react";
+import { useRouter } from "next/navigation";
+import { generateQuizForCategory } from "@/lib/quizGenerator";
+import QuizAnswerAnimation from "@/components/QuizAnswerAnimation";
+import { calculateXP } from "@/lib/quizXP";
+import { saveQuizAttempt } from "@/lib/quizHistory";
 
-export default function QuizPage({ params }) {
-  const category = params.category;
-  const quiz = quizzes.quizzes.find((q) => q.category === category);
+export default function QuizCategoryPage({ params }) {
+  const router = useRouter();
+  const category = decodeURIComponent(params.category);
+
+  const questions = useMemo(() => generateQuizForCategory(category, 10), [category]);
 
   const [index, setIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [finished, setFinished] = useState(false);
+  const [answers, setAnswers] = useState([]);
+  const [flash, setFlash] = useState(null);
 
-  function handleAnswer(isCorrect) {
-    if (isCorrect) setScore((s) => s + 1);
+  const current = questions[index];
 
-    if (index + 1 < quiz.questions.length) {
+  if (!questions.length) {
+    return (
+      <div className="min-h-screen bg-black text-white p-10 text-center">
+        <h1 className="text-3xl font-bold theme-text">Quiz: {category}</h1>
+        <p className="opacity-70 mt-4">No quiz available for this category yet.</p>
+      </div>
+    );
+  }
+
+  async function handleAnswer(opt) {
+    const isCorrect = opt === current.correct;
+
+    // Flash animation
+    setFlash(isCorrect ? "correct" : "incorrect");
+    setTimeout(() => setFlash(null), 400);
+
+    // Save answer
+    const updated = [...answers, { correct: isCorrect }];
+    setAnswers(updated);
+
+    // Next question or finish
+    if (index + 1 < questions.length) {
       setIndex(index + 1);
     } else {
-      setFinished(true);
+      // Quiz finished → calculate XP + save history
+      const correctCount = updated.filter(a => a.correct).length;
+      const total = updated.length;
+      const score = Math.round((correctCount / total) * 100);
+      const xp = calculateXP(correctCount, total);
+
+      // Save quiz attempt
+      await saveQuizAttempt({
+        explorerId: "demo-explorer", // Replace with real explorer ID
+        category,
+        score,
+        correct: correctCount,
+        total
+      });
+
+      // Redirect to results page
+      router.push(
+        `/quiz/${encodeURIComponent(category)}/results?answers=${JSON.stringify(
+          updated
+        )}&explorerId=demo-explorer&category=${encodeURIComponent(category)}`
+      );
     }
   }
 
+  const progress = Math.round(((index + 1) / questions.length) * 100);
+
   return (
-    <PageTransition>
-      <div className="min-h-screen bg-black text-white p-6 landscape-center">
-        {!finished ? (
-          <QuizQuestion
-            question={quiz.questions[index]}
-            onAnswer={handleAnswer}
-            index={index}
-            total={quiz.questions.length}
-          />
-        ) : (
-          <QuizResults
-            score={score}
-            total={quiz.questions.length}
-            category={category}
-          />
-        )}
+    <div className="min-h-screen bg-black text-white p-10 relative">
+
+      {/* Flash animation */}
+      {flash && <QuizAnswerAnimation correct={flash === "correct"} />}
+
+      {/* Progress Bar */}
+      <div className="w-full bg-white/20 h-3 rounded-xl mb-8">
+        <div
+          className="bg-indigo-500 h-3 rounded-xl transition-all"
+          style={{ width: `${progress}%` }}
+        />
       </div>
-    </PageTransition>
+
+      <h1 className="text-3xl font-bold theme-text mb-6 text-center">
+        Quiz: {category}
+      </h1>
+
+      <div className="max-w-3xl mx-auto bg-white/10 p-6 rounded-2xl border border-white/20">
+        <p className="font-semibold mb-4 text-xl">
+          Question {index + 1} of {questions.length}
+        </p>
+
+        <p className="text-lg mb-6">{current.question}</p>
+
+        <div className="grid gap-3">
+          {current.options.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => handleAnswer(opt)}
+              className="bg-indigo-800 hover:bg-indigo-600 rounded-xl px-4 py-3 text-left text-lg"
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

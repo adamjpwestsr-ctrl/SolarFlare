@@ -44,7 +44,8 @@ export default function QuizCategoryPage({ params }) {
   async function handleAnswer(opt) {
     const normalizedUser = normalize(opt);
 
-    const correctAnswers = current.correctAnswers || [current.correct];
+    // CorrectAnswers is ALWAYS present from your generator
+    const correctAnswers = current.correctAnswers;
     const normalizedCorrect = correctAnswers.map(normalize);
 
     const isCorrect = normalizedCorrect.includes(normalizedUser);
@@ -82,8 +83,8 @@ export default function QuizCategoryPage({ params }) {
       });
 
       router.push(
-        `/quiz/${encodeURIComponent(category)}/results?answers=${JSON.stringify(
-          updated
+        `/quiz/${encodeURIComponent(category)}/results?answers=${encodeURIComponent(
+          JSON.stringify(updated)
         )}&explorerId=${explorerId}&category=${encodeURIComponent(category)}`
       );
     }

@@ -34,16 +34,16 @@ export default function HomeContent() {
       </motion.div>
 
       {/* 🌌 Nebula Gradient */}
-      <div className="fixed inset-0 -z-45 nebula-bg" />
+      <div className="fixed inset-0 -z-45 nebula-bg pointer-events-none" />
 
       {/* ✨ Constellation Overlay */}
-      <div className="fixed inset-0 -z-40 opacity-40 bg-[url('/images/constellations.svg')] bg-cover bg-center" />
+      <div className="fixed inset-0 -z-40 opacity-40 bg-[url('/images/constellations.svg')] bg-cover bg-center pointer-events-none" />
 
       {/* ☀️ Glowing Sun */}
       <motion.div
         animate={{ opacity: [0.15, 0.25, 0.15], scale: [1, 1.05, 1] }}
         transition={{ repeat: Infinity, duration: 12 }}
-        className="absolute inset-0 -z-30 bg-orange-500 blur-[180px] opacity-20"
+        className="absolute inset-0 -z-30 bg-orange-500 blur-[180px] opacity-20 pointer-events-none"
       />
 
       {/* 🚀 HERO SECTION */}
@@ -105,15 +105,15 @@ export default function HomeContent() {
       {/* 📊 DASHBOARD PLACEHOLDERS */}
       {/* ========================= */}
       <section className="w-full max-w-6xl mx-auto px-4 mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-        <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
+        <div className="bg-white/20 backdrop-blur-xl p-6 rounded-2xl border border-white/30 shadow-lg shadow-inner">
           <h3 className="text-xl font-bold mb-2">🌠 Today’s Discovery</h3>
           <p className="text-sm text-gray-300">Placeholder: A cool space fact will appear here.</p>
         </div>
-        <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
+        <div className="bg-white/20 backdrop-blur-xl p-6 rounded-2xl border border-white/30 shadow-lg shadow-inner">
           <h3 className="text-xl font-bold mb-2">🔥 Quiz Streak</h3>
           <p className="text-sm text-gray-300">Placeholder: Your streak count goes here.</p>
         </div>
-        <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
+        <div className="bg-white/20 backdrop-blur-xl p-6 rounded-2xl border border-white/30 shadow-lg shadow-inner">
           <h3 className="text-xl font-bold mb-2">🚀 Explorer Level</h3>
           <p className="text-sm text-gray-300">Placeholder: Your XP progress will show here.</p>
         </div>

@@ -303,25 +303,29 @@
         "Tiny black holes might exist — smaller than atoms."
       ]
     },
-    {
-      "category": "Spacecraft",
-      "facts": [
-        "Voyager 1 is the farthest human‑made object.",
-        "Voyager 2 visited all four giant planets.",
-        "New Horizons flew past Pluto in 2015.",
-        "The James Webb Space Telescope studies distant galaxies.",
-        "The Hubble Space Telescope has taken iconic images.",
-        "The Mars rovers explore the Red Planet.",
-        "The ISS orbits Earth every 90 minutes.",
-        "Apollo missions landed humans on the Moon.",
-        "Parker Solar Probe studies the Sun up close.",
-        "Artemis aims to return humans to the Moon.",
-        "The ISS is the size of a football field.",
-        "Some spacecraft use ion engines like electric wind.",
-        "The Parker Solar Probe is the fastest object ever built.",
-        "Spacecraft can slingshot around planets to gain speed."
-      ]
-    },
+{
+  "category": "Spacecraft",
+  "facts": [
+    "Voyager 1 is the farthest human‑made object.",
+    "Voyager 2 visited all four giant planets.",
+    "New Horizons flew past Pluto in 2015.",
+    "The James Webb Space Telescope studies distant galaxies.",
+    "The Hubble Space Telescope has taken iconic images.",
+    "The Mars rovers explore the Red Planet.",
+    "The ISS orbits Earth every 90 minutes.",
+    "Apollo missions landed humans on the Moon.",
+    "Parker Solar Probe studies the Sun up close.",
+    "Artemis aims to return humans to the Moon.",
+    "The ISS is the size of a football field.",
+    "Some spacecraft use ion engines like electric wind.",
+    "The Parker Solar Probe is the fastest object ever built.",
+    "Spacecraft can slingshot around planets to gain speed.",
+    "Artemis II was the first crewed mission of NASA’s Artemis program.",
+    "Artemis II flew around the Moon in 2026, testing life‑support and navigation systems.",
+    "The Artemis II crew included four astronauts from NASA and the Canadian Space Agency.",
+    "Artemis II paved the way for Artemis III, which will land humans on the lunar surface."
+  ]
+},
     {
       "category": "Cosmology",
       "facts": [

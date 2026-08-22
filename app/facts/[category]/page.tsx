@@ -5,7 +5,7 @@ import Link from "next/link";
 import factsData from "@/data/facts.json";
 
 export default function Page({ params }) {
-  const { category } = params;
+  const category = decodeURIComponent(params.category);
 
   const categoryData = factsData.facts.find(
     (item) => item.category.toLowerCase() === category.toLowerCase()

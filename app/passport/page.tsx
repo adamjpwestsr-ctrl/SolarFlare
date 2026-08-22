@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import PageTransition from "@/components/PageTransition";
 import BadgeUnlockModal from "@/components/BadgeUnlockModal";
 import { useEffect, useState } from "react";

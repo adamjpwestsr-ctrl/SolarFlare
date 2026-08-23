@@ -1,14 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { persistBadgeUnlock, awardBadgeXP, refreshExplorer } from "@/lib/passport";
 
-export default function StampCard({ badge, onUnlock }) {
+export default function StampCard({ badge, explorerId, onUnlock }) {
   const isLocked = !badge.earned;
 
-  function handleUnlock() {
-    if (isLocked && onUnlock) {
-      onUnlock(badge);
-    }
+  async function handleUnlock() {
+    if (!isLocked) return;
+
+    await persistBadgeUnlock(explorerId, badge.id);
+    await awardBadgeXP(explorerId, 50);
+    await refreshExplorer(explorerId);
+
+    if (onUnlock) onUnlock(badge);
   }
 
   return (
@@ -21,7 +26,6 @@ export default function StampCard({ badge, onUnlock }) {
         ${isLocked ? "bg-gray-800 opacity-50 border-gray-700" : "theme-bg border-white/20"}`}
     >
       <div className="text-5xl mb-3">{badge.icon}</div>
-
       <h3 className="text-lg font-bold">{badge.name}</h3>
 
       {isLocked ? (

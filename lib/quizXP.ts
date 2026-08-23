@@ -1,14 +1,8 @@
+// lib/quizXP.ts
 import { supabase } from "@/lib/supabase";
 
-/**
- * XP rules:
- * - +10 XP per correct answer
- * - Bonus +20 XP for scoring 80%+
- * - Bonus +50 XP for a perfect score
- */
-export function calculateXP(correct: number, total: number) {
+export function calculateXP(correct, total) {
   let xp = correct * 10;
-
   const score = Math.round((correct / total) * 100);
 
   if (score >= 80 && score < 100) xp += 20;
@@ -17,18 +11,11 @@ export function calculateXP(correct: number, total: number) {
   return xp;
 }
 
-/**
- * Leveling rules:
- * Level = floor(xp / 100)
- */
-export function calculateLevel(xp: number) {
+export function calculateLevel(xp) {
   return Math.floor(xp / 100);
 }
 
-/**
- * Fetch XP + level for explorer
- */
-export async function getExplorerXP(explorerId: string) {
+export async function getExplorerXP(explorerId) {
   const { data, error } = await supabase
     .from("explorer_xp")
     .select("xp")
@@ -37,39 +24,22 @@ export async function getExplorerXP(explorerId: string) {
 
   if (error || !data) return { xp: 0, level: 0 };
 
-  const level = calculateLevel(data.xp);
-  return { xp: data.xp, level };
+  return { xp: data.xp, level: calculateLevel(data.xp) };
 }
 
-/**
- * Add XP after quiz
- */
-export async function addXP(explorerId: string, xpToAdd: number) {
-  const { data, error } = await supabase
+export async function addXP(explorerId, xpToAdd) {
+  const { data } = await supabase
     .from("explorer_xp")
     .select("xp")
     .eq("explorer_id", explorerId)
     .single();
 
-  let newXP = xpToAdd;
+  const newXP = (data?.xp || 0) + xpToAdd;
 
-  if (!error && data) {
-    newXP = data.xp + xpToAdd;
-  }
+  await supabase.from("explorer_xp").upsert({
+    explorer_id: explorerId,
+    xp: newXP
+  });
 
-  const { error: upsertError } = await supabase
-    .from("explorer_xp")
-    .upsert({
-      explorer_id: explorerId,
-      xp: newXP
-    });
-
-  if (upsertError) {
-    console.warn("XP update error:", upsertError.message);
-  }
-
-  return {
-    xp: newXP,
-    level: calculateLevel(newXP)
-  };
+  return { xp: newXP, level: calculateLevel(newXP) };
 }

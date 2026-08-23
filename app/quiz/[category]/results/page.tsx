@@ -1,79 +1,71 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { calculateScore } from "@/lib/quizScoring";
-import { unlockQuizBadge } from "@/lib/badgeManager";
+import { addXP, calculateXP } from "@/lib/quizXP";
+import { getExplorerLocal } from "@/lib/identity";
 import BadgeEarnedOverlay from "@/components/BadgeEarnedOverlay";
-import Link from "next/link";
+import { getBadges } from "@/lib/badgeManager";
 
-export default function QuizResultsPage({ searchParams }) {
-  const { answers, explorerId, category } = searchParams;
-
-  // Decode and parse answers safely
-  let parsedAnswers = [];
-  try {
-    parsedAnswers = JSON.parse(decodeURIComponent(answers));
-  } catch (e) {
-    console.error("Failed to parse answers:", e);
-  }
-
-  const [badge, setBadge] = useState(null);
-  const result = calculateScore(parsedAnswers);
+export default function QuizResultsPage({ params }) {
+  const { category } = params;
+  const [explorer, setExplorer] = useState(null);
+  const [results, setResults] = useState(null);
+  const [earnedBadge, setEarnedBadge] = useState(null);
 
   useEffect(() => {
-    async function checkBadge() {
-      const earned = await unlockQuizBadge(explorerId, result.score);
-      if (earned) setBadge(earned);
+    const e = getExplorerLocal();
+    setExplorer(e);
+
+    const stored = localStorage.getItem("quizResults");
+    if (stored) {
+      setResults(JSON.parse(stored));
     }
-    checkBadge();
-  }, [explorerId, result.score]);
+  }, []);
+
+  useEffect(() => {
+    if (!results || !explorer) return;
+
+    const xp = calculateXP(results.correct, results.total);
+    addXP(explorer.id, xp);
+
+    // Badge unlock logic
+    const badges = getBadges();
+    const badge = badges.find((b) => b.category === category);
+
+    if (badge && results.correct === results.total) {
+      setEarnedBadge(badge);
+    }
+  }, [results, explorer]);
+
+  if (!results) {
+    return (
+      <div className="p-6 text-center theme-text">
+        Loading results...
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-black text-white p-10 text-center relative pb-24">
-
-      {/* Badge celebration overlay */}
-      {badge && (
-        <BadgeEarnedOverlay
-          badge={badge}
-          onClose={() => setBadge(null)}
-        />
-      )}
-
-      <h1 className="text-4xl font-bold theme-text mb-6">
-        Quiz Results: {decodeURIComponent(category)}
+    <div className="p-6 md:p-10">
+      <h1 className="text-3xl font-bold theme-text mb-6">
+        {category} Quiz Results
       </h1>
 
-      <div className="bg-white/10 p-6 rounded-2xl border border-white/20 max-w-xl mx-auto">
-        <p className="text-2xl mb-4">
-          You scored <span className="font-bold">{result.score}%</span>
+      <div className="bg-gray-900 p-6 rounded-xl border-2 border-white/20 shadow-xl mb-8">
+        <p className="text-xl mb-2">Correct: {results.correct}</p>
+        <p className="text-xl mb-2">Total: {results.total}</p>
+        <p className="text-xl theme-text">
+          Score: {Math.round((results.correct / results.total) * 100)}%
         </p>
-
-        <p className="text-lg opacity-80 mb-6">
-          {result.correct} correct out of {result.total}
-        </p>
-
-        {badge && (
-          <div className="mt-6 text-xl">
-            🎉 Badge Earned: <span className="font-bold">{badge.name}</span>
-          </div>
-        )}
       </div>
 
-      <div className="mt-10 flex flex-col gap-4 items-center">
-        <Link
-          href={`/quiz/${encodeURIComponent(category)}`}
-          className="bg-indigo-700 hover:bg-indigo-600 px-6 py-3 rounded-xl text-lg"
-        >
-          Try Again
-        </Link>
-
-        <Link
-          href="/quiz"
-          className="text-indigo-400 hover:text-indigo-300 text-lg"
-        >
-          ← Back to Quiz Hub
-        </Link>
-      </div>
+      {earnedBadge && (
+        <BadgeEarnedOverlay
+          badge={earnedBadge}
+          explorerId={explorer.id}
+          onClose={() => setEarnedBadge(null)}
+        />
+      )}
     </div>
   );
 }

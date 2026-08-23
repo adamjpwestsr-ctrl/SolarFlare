@@ -1,53 +1,50 @@
+// lib/quizGenerator.ts
 import factsData from "@/data/facts.json";
 
-export interface QuizQuestion {
-  question: string;
-  correctAnswers: string[];
-  options: string[];
-}
+const QUESTION_TEMPLATES = [
+  (cat) => `Which fact is true about ${cat}?`,
+  (cat) => `Which statement describes ${cat}?`,
+  (cat) => `Which of these belongs to the category ${cat}?`,
+  (cat) => `Which fact correctly matches ${cat}?`
+];
 
-function shuffle<T>(items: T[]): T[] {
-  return [...items].sort(() => Math.random() - 0.5);
-}
+export function generateQuizForCategory(category, count = 10, difficulty = 1) {
+  const categoryBlock = factsData.facts.find((f) => f.category === category);
+  if (!categoryBlock) throw new Error(`Category not found: ${category}`);
 
-export function generateQuizForCategory(
-  category: string,
-  count: number = 10
-): QuizQuestion[] {
-  const decoded = decodeURIComponent(category);
-
-  const categoryData = factsData.facts.find(
-    (item) => item.category.toLowerCase() === decoded.toLowerCase()
-  );
-
-  if (!categoryData) return [];
-
-  const facts = categoryData.facts;
-
-  // Remove duplicate facts
-  const uniqueFacts = [...new Set(facts)];
-
-  // Pull wrong answers from ALL OTHER categories
+  const correctFacts = [...categoryBlock.facts];
   const allOtherFacts = factsData.facts
-    .filter((f) => f.category !== categoryData.category)
+    .filter((f) => f.category !== category)
     .flatMap((f) => f.facts);
 
-  const questions: QuizQuestion[] = uniqueFacts.map((fact) => {
-    const correctAnswers = [fact];
+  const questions = [];
 
-    // Wrong answers from other categories (much better variety)
-    const wrongOptions = shuffle(allOtherFacts).slice(0, 3);
+  for (let i = 0; i < count; i++) {
+    const correct = correctFacts[Math.floor(Math.random() * correctFacts.length)];
 
-    // Unique question prompt per fact
-    const questionText = `Which statement about ${categoryData.category} is correct?`;
+    // Pick distractors from other categories
+    const distractors = shuffle(allOtherFacts)
+      .filter((d) => d !== correct)
+      .slice(0, 3);
 
-    return {
-      question: questionText,
-      correctAnswers,
-      options: shuffle([...correctAnswers, ...wrongOptions])
-    };
-  });
+    const prompt =
+      QUESTION_TEMPLATES[Math.floor(Math.random() * QUESTION_TEMPLATES.length)](
+        category
+      );
 
-  // Shuffle and slice unique questions
-  return shuffle(questions).slice(0, count);
+    const options = shuffle([correct, ...distractors]);
+
+    questions.push({
+      id: `${category}-${i}`,
+      prompt,
+      correct,
+      options
+    });
+  }
+
+  return questions;
+}
+
+function shuffle(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
 }

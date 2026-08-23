@@ -1,15 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { awardDailyXP, refreshExplorer } from "@/lib/passport";
 
-export default function DailyStampCard({ stamp }) {
+export default function DailyStampCard({ stamp, explorerId }) {
+  async function awardDaily() {
+    await awardDailyXP(explorerId, 10);
+    await refreshExplorer(explorerId);
+  }
+
   return (
     <motion.div
+      onClick={awardDaily}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.35 }}
       className="p-4 md:p-6 ipad-card rounded-xl shadow-xl text-center 
-                 border-2 theme-border bg-gray-900"
+                 border-2 theme-border bg-gray-900 cursor-pointer"
     >
       <div className="text-4xl md:text-5xl mb-2">{stamp.icon}</div>
       <p className="font-bold theme-text">{stamp.label}</p>

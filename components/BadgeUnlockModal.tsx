@@ -1,42 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { persistBadgeUnlock, awardBadgeXP, refreshExplorer } from "@/lib/passport";
 
-export default function BadgeUnlockModal({ badge, onClose }) {
+export default function BadgeUnlockModal({ badge, explorerId, onClose }) {
+  async function unlock() {
+    await persistBadgeUnlock(explorerId, badge.id);
+    await awardBadgeXP(explorerId, 50);
+    await refreshExplorer(explorerId);
+
+    if (onClose) onClose();
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="fixed inset-0 bg-black/70 backdrop-blur-xl flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
     >
       <motion.div
-        initial={{ scale: 0.4, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.45, ease: "easeOut" }}
-        className="bg-gray-900 p-10 rounded-3xl shadow-2xl text-center border-2 theme-border max-w-md"
+        initial={{ scale: 0.8 }}
+        animate={{ scale: 1 }}
+        className="bg-gray-900 p-6 rounded-xl text-center border-2 border-white/20 shadow-xl max-w-sm"
       >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1.4 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-7xl mb-6"
+        <div className="text-6xl mb-4">{badge.icon}</div>
+        <h2 className="text-2xl font-bold mb-2 theme-text">Unlock Badge?</h2>
+        <p className="text-lg mb-4">{badge.name}</p>
+
+        <button
+          onClick={unlock}
+          className="px-6 py-3 rounded-lg theme-bg text-white font-bold hover:opacity-90"
         >
-          {badge.icon}
-        </motion.div>
+          Unlock
+        </button>
 
-        <h2 className="text-3xl font-bold theme-text mb-4">
-          Badge Unlocked!
-        </h2>
-
-        <p className="text-xl opacity-80 mb-8">{badge.name}</p>
-
-        <motion.button
-          whileTap={{ scale: 0.9 }}
+        <button
           onClick={onClose}
-          className="theme-bg hover:opacity-90 px-6 py-3 rounded-xl text-lg font-bold shadow-lg"
+          className="mt-3 px-6 py-3 rounded-lg bg-gray-700 text-white font-bold hover:opacity-80"
         >
-          Continue
-        </motion.button>
+          Cancel
+        </button>
       </motion.div>
     </motion.div>
   );

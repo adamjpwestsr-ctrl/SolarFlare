@@ -5,8 +5,6 @@
       "name": "Solar Scholar",
       "icon": "☀️",
       "category": "Sun",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for mastering facts about the Sun."
     },
     {
@@ -14,8 +12,6 @@
       "name": "Mercury Messenger",
       "icon": "☿️",
       "category": "Mercury",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by completing the Mercury quiz."
     },
     {
@@ -23,8 +19,6 @@
       "name": "Venus Voyager",
       "icon": "♀️",
       "category": "Venus",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for learning about Earth's fiery twin."
     },
     {
@@ -32,8 +26,6 @@
       "name": "Earth Explorer",
       "icon": "🌍",
       "category": "Earth",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by completing Earth’s fact challenges."
     },
     {
@@ -41,8 +33,6 @@
       "name": "Lunar Explorer",
       "icon": "🌕",
       "category": "Moon",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for mastering Moon facts."
     },
     {
@@ -50,8 +40,6 @@
       "name": "Martian Scout",
       "icon": "🔴",
       "category": "Mars",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by completing the Mars quiz."
     },
     {
@@ -59,8 +47,6 @@
       "name": "Asteroid Ace",
       "icon": "🪨",
       "category": "Asteroid Belt",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for learning about the asteroid belt."
     },
     {
@@ -68,8 +54,6 @@
       "name": "Jupiter Jumper",
       "icon": "🟤",
       "category": "Jupiter",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by completing Jupiter’s quiz."
     },
     {
@@ -77,8 +61,6 @@
       "name": "Saturn Specialist",
       "icon": "🪐",
       "category": "Saturn",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for learning about Saturn’s rings."
     },
     {
@@ -86,8 +68,6 @@
       "name": "Uranus Adventurer",
       "icon": "💠",
       "category": "Uranus",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by completing the Uranus quiz."
     },
     {
@@ -95,8 +75,6 @@
       "name": "Neptune Navigator",
       "icon": "🔵",
       "category": "Neptune",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for mastering Neptune facts."
     },
     {
@@ -104,8 +82,6 @@
       "name": "Dwarf Planet Discoverer",
       "icon": "❄️",
       "category": "Dwarf Planets",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by exploring dwarf planet facts."
     },
     {
@@ -113,8 +89,6 @@
       "name": "Comet Chaser",
       "icon": "☄️",
       "category": "Comets",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for learning about comets."
     },
     {
@@ -122,8 +96,6 @@
       "name": "Star Student",
       "icon": "⭐",
       "category": "Stars",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by completing the star quiz."
     },
     {
@@ -131,8 +103,6 @@
       "name": "Galaxy Guru",
       "icon": "🌌",
       "category": "Galaxies",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for mastering galaxy facts."
     },
     {
@@ -140,8 +110,6 @@
       "name": "Nebula Navigator",
       "icon": "🌀",
       "category": "Nebulae",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by exploring nebula facts."
     },
     {
@@ -149,8 +117,6 @@
       "name": "Black Hole Boss",
       "icon": "⚫",
       "category": "Black Holes",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for learning about black holes."
     },
     {
@@ -158,8 +124,6 @@
       "name": "Spacecraft Specialist",
       "icon": "🚀",
       "category": "Spacecraft",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by mastering spacecraft history."
     },
     {
@@ -167,17 +131,41 @@
       "name": "Cosmic Explorer",
       "icon": "✨",
       "category": "Cosmology",
-      "earned": false,
-      "earnedDate": null,
       "description": "Awarded for learning about the universe."
+    },
+    {
+      "id": "exoplanet-badge",
+      "name": "Exoplanet Explorer",
+      "icon": "🪐",
+      "category": "Exoplanets",
+      "description": "Awarded for learning about planets beyond our solar system."
+    },
+    {
+      "id": "phenomena-badge",
+      "name": "Phenomena Finder",
+      "icon": "🌠",
+      "category": "Cosmic Phenomena",
+      "description": "Earned by exploring cosmic events and mysteries."
+    },
+    {
+      "id": "tools-badge",
+      "name": "Astronomy Technician",
+      "icon": "🔭",
+      "category": "Astronomy Tools",
+      "description": "Awarded for mastering the instruments of space observation."
+    },
+    {
+      "id": "astrobiology-badge",
+      "name": "Life Seeker",
+      "icon": "🧬",
+      "category": "Astrobiology",
+      "description": "Earned by learning about life in the universe."
     },
     {
       "id": "master-badge",
       "name": "Master of the Universe",
       "icon": "🌠",
       "category": "Special",
-      "earned": false,
-      "earnedDate": null,
       "description": "Earned by collecting all other badges."
     }
   ]

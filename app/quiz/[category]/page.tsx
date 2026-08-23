@@ -44,8 +44,8 @@ export default function QuizCategoryPage({ params }) {
   async function handleAnswer(opt) {
     const normalizedUser = normalize(opt);
 
-    // CorrectAnswers is ALWAYS present from your generator
-    const correctAnswers = current.correctAnswers;
+    // Smart Quiz Engine: correct answer is ALWAYS current.correct
+    const correctAnswers = [current.correct];
     const normalizedCorrect = correctAnswers.map(normalize);
 
     const isCorrect = normalizedCorrect.includes(normalizedUser);
@@ -115,7 +115,8 @@ export default function QuizCategoryPage({ params }) {
           Question {index + 1} of {questions.length}
         </p>
 
-        <p className="text-lg mb-6">{current.question}</p>
+        {/* FIXED: Show Smart Quiz prompt */}
+        <p className="text-lg mb-6">{current.prompt}</p>
 
         <div className="grid gap-3">
           {current.options.map((opt) => (

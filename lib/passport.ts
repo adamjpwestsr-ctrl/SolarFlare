@@ -1,9 +1,9 @@
 // lib/passport.ts
 import { supabase } from "@/lib/supabase";
 import { addXP } from "@/lib/quizXP";
-import { getExplorerLocal, setExplorerLocal } from "@/lib/identity";
+import { getExplorerLocal } from "@/lib/identity";
 
-export async function persistBadgeUnlock(explorerId, badgeId) {
+export async function persistBadgeUnlock(explorerId: string, badgeId: string) {
   const { error } = await supabase
     .from("explorer_badges")
     .upsert({
@@ -16,29 +16,28 @@ export async function persistBadgeUnlock(explorerId, badgeId) {
     console.warn("Badge unlock error:", error.message);
   }
 
-  // Update local explorer cache
+  // Optional: update local explorer cache if needed later
   const explorer = getExplorerLocal();
-  if (explorer) {
-    explorer.badges = [...new Set([...(explorer.badges || []), badgeId])];
-    setExplorerLocal(explorer);
+  if (explorer && explorer.id === explorerId) {
+    // If you add a setExplorerLocal in the future, you can update badges here.
+    // For now, we just rely on server state + fresh fetches.
   }
 }
 
-export async function awardBadgeXP(explorerId, amount = 50) {
+export async function awardBadgeXP(explorerId: string, amount = 50) {
   return await addXP(explorerId, amount);
 }
 
-export async function awardDailyXP(explorerId, amount = 10) {
+export async function awardDailyXP(explorerId: string, amount = 10) {
   return await addXP(explorerId, amount);
 }
 
-export async function refreshExplorer(explorerId) {
+export async function refreshExplorer(explorerId: string) {
   const { data } = await supabase
     .from("explorers")
     .select("*")
     .eq("id", explorerId)
     .single();
 
-  if (data) setExplorerLocal(data);
   return data;
 }

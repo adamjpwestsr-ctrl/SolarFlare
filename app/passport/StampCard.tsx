@@ -3,11 +3,18 @@
 import { motion } from "framer-motion";
 import { persistBadgeUnlock, awardBadgeXP, refreshExplorer } from "@/lib/passport";
 
-export default function StampCard({ badge, explorerId, onUnlock }) {
+type StampCardProps = {
+  badge: any;
+  explorerId?: string;
+  onUnlock?: (badge: any) => void;
+};
+
+export default function StampCard({ badge, explorerId, onUnlock }: StampCardProps) {
   const isLocked = !badge.earned;
 
   async function handleUnlock() {
-    if (!isLocked) return;
+    // If we don't have an explorerId, do nothing (PassportPage gallery case)
+    if (!explorerId || !isLocked) return;
 
     await persistBadgeUnlock(explorerId, badge.id);
     await awardBadgeXP(explorerId, 50);

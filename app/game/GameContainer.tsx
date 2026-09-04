@@ -42,12 +42,7 @@ export default function GameContainer() {
     useZoneController(zones);
 
   // Player movement
-const { position: player, direction } = usePlayerMovement({
-  width: GAME_WIDTH,
-  height: GAME_HEIGHT,
-  speed: 6
-});
-
+const { position: player, direction } = usePlayerMovement();
 
   // Collision detection
   const { checkObstacleCollision, checkCollectibleCollision } = useCollisionDetection();

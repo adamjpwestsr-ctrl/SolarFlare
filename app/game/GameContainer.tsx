@@ -12,10 +12,12 @@ import ObstacleManager from "./components/ObstacleManager";
 import CollectibleManager from "./components/CollectibleManager";
 import CollectibleBurst from "./components/CollectibleBurst";
 import HazardFlash from "./components/HazardFlash";
-import ZoneComplete from "./components/ZoneComplete"; // NEW
+import ZoneComplete from "./components/ZoneComplete";
 
-import usePlayerMovement from "./hooks/usePlayerMovement";
-import useCollisionDetection from "./hooks/useCollisionDetection";
+// FIXED: Named imports
+import { usePlayerMovement } from "./hooks/usePlayerMovement";
+import { useCollisionDetection } from "./hooks/useCollisionDetection";
+
 import useZoneController from "./hooks/useZoneController";
 import useBurstManager from "./hooks/useBurstManager";
 import useHazardFlash from "./hooks/useHazardFlash";
@@ -86,7 +88,7 @@ export default function GameContainer() {
         setCollectibles((prev) => prev.filter((c) => c.id !== hitCollectible.id));
       }
 
-      // NEW: Zone completion trigger (example: reach right edge)
+      // Zone completion trigger
       if (player.x > GAME_WIDTH - 60) {
         completeZone();
       }
@@ -101,7 +103,7 @@ export default function GameContainer() {
     isGameOver,
     showZoneIntro,
     transitioning,
-    zoneComplete, // NEW
+    zoneComplete,
     score,
     zone,
     explorerId,

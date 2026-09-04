@@ -49,7 +49,26 @@ const { position: player, direction } = usePlayerMovement({
 
 
   // Collision detection
-  const { checkObstacleCollision, checkCollectibleCollision } = useCollisionDetection();
+  useCollisionDetection({
+  player,
+  obstacles,
+  collectibles,
+  onHitObstacle: (obs) => {
+    triggerFlash();
+    setIsGameOver(true);
+    syncScore(explorerId, zone.id, score);
+  },
+  onCollect: (col) => {
+    const newScore = score + col.points;
+    setScore(newScore);
+
+    syncCollectible(explorerId, col.id, col.points);
+    spawnBurst(col.x, col.y, col.rarity);
+
+    setCollectibles((prev) => prev.filter((c) => c.id !== col.id));
+  }
+});
+
 
   // Managers
   const [obstacles, setObstacles] = useState([]);

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "earth-orbit",
+    "name": "Earth Orbit",
+    "background": "/images/zones/earth-orbit.jpg",
+    "hazards": ["satellite", "asteroid"],
+    "collectibles": ["moon-rock", "meteor-fragment", "solar-flare-particle"],
+    "difficulty": 1
+  },
+  {
+    "id": "moon",
+    "name": "Lunar Surface",
+    "background": "/images/zones/moon.jpg",
+    "hazards": ["asteroid"],
+    "collectibles": ["moon-rock", "meteor-fragment", "ice-crystal"],
+    "difficulty": 1
+  },
+  {
+    "id": "mars",
+    "name": "Mars Region",
+    "background": "/images/zones/mars.jpg",
+    "hazards": ["dust-storm", "asteroid"],
+    "collectibles": ["meteor-fragment", "comet-dust", "space-spore"],
+    "difficulty": 2
+  },
+  {
+    "id": "asteroid-belt",
+    "name": "Asteroid Belt",
+    "background": "/images/zones/asteroid-belt.jpg",
+    "hazards": ["asteroid", "asteroid", "asteroid"],
+    "collectibles": ["comet-dust", "alien-artifact", "star-core-shard"],
+    "difficulty": 3
+  },
+  {
+    "id": "jupiter",
+    "name": "Jupiter Orbit",
+    "background": "/images/zones/jupiter.jpg",
+    "hazards": ["gas-storm", "asteroid"],
+    "collectibles": ["ice-crystal", "cosmic-ray-sample", "nebula-gas"],
+    "difficulty": 3
+  },
+  {
+    "id": "saturn",
+    "name": "Saturn Rings",
+    "background": "/images/zones/saturn.jpg",
+    "hazards": ["ring-debris", "ice-shard"],
+    "collectibles": ["nebula-gas", "quantum-pebble", "gravity-crystal"],
+    "difficulty": 4
+  },
+  {
+    "id": "uranus",
+    "name": "Uranus Orbit",
+    "background": "/images/zones/uranus.jpg",
+    "hazards": ["ice-shard"],
+    "collectibles": ["ice-crystal", "gravity-crystal", "wormhole-fragment"],
+    "difficulty": 4
+  },
+  {
+    "id": "neptune",
+    "name": "Neptune Deep Space",
+    "background": "/images/zones/neptune.jpg",
+    "hazards": ["frozen-asteroid", "ice-shard"],
+    "collectibles": ["dark-matter", "pulsar-chip", "supernova-dust"],
+    "difficulty": 5
+  },
+  {
+    "id": "black-hole",
+    "name": "Black Hole Edge",
+    "background": "/images/zones/black-hole.jpg",
+    "hazards": ["blackhole", "gravity-well"],
+    "collectibles": ["wormhole-fragment", "supernova-dust", "blackhole-core"],
+    "difficulty": 6
+  }
+]

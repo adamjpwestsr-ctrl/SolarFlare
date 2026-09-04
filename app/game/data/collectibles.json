@@ -1,0 +1,142 @@
+[
+  {
+    "id": "moon-rock",
+    "name": "Moon Rock",
+    "points": 1,
+    "rarity": "common",
+    "description": "A small rock fragment from the lunar surface."
+  },
+  {
+    "id": "meteor-fragment",
+    "name": "Meteor Fragment",
+    "points": 2,
+    "rarity": "common",
+    "description": "A tiny shard from a passing meteor."
+  },
+  {
+    "id": "solar-flare-particle",
+    "name": "Solar Flare Particle",
+    "points": 3,
+    "rarity": "common",
+    "description": "A charged particle from a solar flare burst."
+  },
+  {
+    "id": "comet-dust",
+    "name": "Comet Dust",
+    "points": 5,
+    "rarity": "uncommon",
+    "description": "Fine dust collected from a comet tail."
+  },
+  {
+    "id": "ice-crystal",
+    "name": "Ice Crystal",
+    "points": 7,
+    "rarity": "uncommon",
+    "description": "A frozen shard found in the outer solar system."
+  },
+  {
+    "id": "space-spore",
+    "name": "Space Plant Spore",
+    "points": 8,
+    "rarity": "uncommon",
+    "description": "A mysterious organic spore drifting through space."
+  },
+  {
+    "id": "alien-artifact",
+    "name": "Alien Artifact",
+    "points": 10,
+    "rarity": "rare",
+    "description": "A strange object of unknown origin."
+  },
+  {
+    "id": "star-core-shard",
+    "name": "Star Core Shard",
+    "points": 12,
+    "rarity": "rare",
+    "description": "A glowing fragment from a star’s inner core."
+  },
+  {
+    "id": "cosmic-ray-sample",
+    "name": "Cosmic Ray Sample",
+    "points": 15,
+    "rarity": "rare",
+    "description": "A high-energy particle captured in deep space."
+  },
+  {
+    "id": "nebula-gas",
+    "name": "Nebula Gas Capsule",
+    "points": 18,
+    "rarity": "rare",
+    "description": "A swirling sample of colorful nebula gas."
+  },
+  {
+    "id": "quantum-pebble",
+    "name": "Quantum Pebble",
+    "points": 20,
+    "rarity": "epic",
+    "description": "A pebble that flickers between states of matter."
+  },
+  {
+    "id": "gravity-crystal",
+    "name": "Gravity Crystal",
+    "points": 25,
+    "rarity": "epic",
+    "description": "A crystal that bends gravity around it."
+  },
+  {
+    "id": "wormhole-fragment",
+    "name": "Wormhole Fragment",
+    "points": 30,
+    "rarity": "epic",
+    "description": "A fragment from the edge of a wormhole."
+  },
+  {
+    "id": "dark-matter",
+    "name": "Dark Matter Sample",
+    "points": 35,
+    "rarity": "legendary",
+    "description": "An ultra-rare sample of invisible cosmic mass."
+  },
+  {
+    "id": "pulsar-chip",
+    "name": "Pulsar Chip",
+    "points": 40,
+    "rarity": "legendary",
+    "description": "A rhythmic energy chip from a pulsar."
+  },
+  {
+    "id": "supernova-dust",
+    "name": "Supernova Dust",
+    "points": 45,
+    "rarity": "legendary",
+    "description": "Dust formed from the explosion of a dying star."
+  },
+  {
+    "id": "blackhole-core",
+    "name": "Black Hole Core",
+    "points": 50,
+    "rarity": "mythic",
+    "description": "The most powerful collectible in the universe."
+  },
+  {
+    "id": "solar-token",
+    "name": "Solar Badge Token",
+    "points": 0,
+    "rarity": "special",
+    "description": "A token used to unlock special achievements."
+  },
+  {
+    "id": "explorer-patch",
+    "name": "Explorer’s Patch",
+    "points": 0,
+    "rarity": "special",
+    "description": "A cosmetic patch for your astronaut suit."
+  },
+  {
+    "id": "passport-stamp",
+    "name": "Cosmic Passport Stamp",
+    "points": 0,
+    "rarity": "special",
+    "description": "A collectible stamp added to your passport."
+  }
+]

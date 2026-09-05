@@ -10,7 +10,7 @@ interface Entity {
   x: number;
   y: number;
   radius: number;
-  type?: string;
+  type: string;
   name?: string;
   points?: number;
   rarity?: string;

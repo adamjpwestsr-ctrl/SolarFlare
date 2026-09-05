@@ -29,10 +29,14 @@ const GAME_HEIGHT = 600;
 
 export default function GameContainer() {
   const [explorerId] = useState("demo-explorer");
+
+  // NEW — Start Game state
+  const [gameStarted, setGameStarted] = useState(false);
+
   const [score, setScore] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
-  const [showZoneIntro, setShowZoneIntro] = useState(true);
+  const [showZoneIntro, setShowZoneIntro] = useState(false); // now false until game starts
 
   // Zone progression
   const { zone, nextZone, resetZones, transitioning, zoneComplete, completeZone } =
@@ -44,10 +48,9 @@ export default function GameContainer() {
     bounds: { width: GAME_WIDTH, height: GAME_HEIGHT }
   });
 
-  // Add radius so collision detection works
   const player = { ...position, radius: 20 };
 
-  // Managers (must come BEFORE collision detection)
+  // Managers
   const [obstacles, setObstacles] = useState([]);
   const [collectibles, setCollectibles] = useState([]);
 
@@ -57,33 +60,47 @@ export default function GameContainer() {
   const { bursts, spawnBurst } = useBurstManager();
   const { flashes, triggerFlash } = useHazardFlash();
 
-  // Collision detection (now obstacles & collectibles exist)
-  useCollisionDetection({
-    player,
-    obstacles,
-    collectibles,
-    onHitObstacle: (obs) => {
-      triggerFlash();
-      setIsGameOver(true);
-      syncScore(explorerId, zone.id, score);
-    },
-    onCollect: (col) => {
-      const newScore = score + col.points;
-      setScore(newScore);
-
-      syncCollectible(explorerId, col.id, col.points);
-      spawnBurst(col.x, col.y, col.rarity);
-
-      setCollectibles((prev) => prev.filter((c) => c.id !== col.id));
-    }
-  });
-
-  // GAME LOOP (zone completion only)
+  // Collision detection — only after game starts AND managers have populated
   useEffect(() => {
+    if (!gameStarted) return;
+    if (obstacles.length === 0 && collectibles.length === 0) return;
+
+    useCollisionDetection({
+      player,
+      obstacles,
+      collectibles,
+      onHitObstacle: (obs) => {
+        if (!obs) return;
+        triggerFlash();
+        setIsGameOver(true);
+
+        // Disable Supabase sync for demo mode
+        if (explorerId !== "demo-explorer") {
+          syncScore(explorerId, zone.id, score);
+        }
+      },
+      onCollect: (col) => {
+        if (!col) return;
+
+        const newScore = score + col.points;
+        setScore(newScore);
+
+        if (explorerId !== "demo-explorer") {
+          syncCollectible(explorerId, col.id, col.points);
+        }
+
+        spawnBurst(col.x, col.y, col.rarity);
+        setCollectibles((prev) => prev.filter((c) => c.id !== col.id));
+      }
+    });
+  }, [gameStarted, player, obstacles, collectibles, score, explorerId, zone.id]);
+
+  // GAME LOOP — only runs when game is active
+  useEffect(() => {
+    if (!gameStarted) return;
     if (isPaused || isGameOver || showZoneIntro || transitioning || zoneComplete) return;
 
     const interval = setInterval(() => {
-      // Zone completion trigger
       if (player.x > GAME_WIDTH - 60) {
         completeZone();
       }
@@ -91,6 +108,7 @@ export default function GameContainer() {
 
     return () => clearInterval(interval);
   }, [
+    gameStarted,
     player,
     isPaused,
     isGameOver,
@@ -100,18 +118,38 @@ export default function GameContainer() {
     completeZone
   ]);
 
+  const startGame = () => {
+    setGameStarted(true);
+    setShowZoneIntro(true);
+  };
+
   const restartGame = () => {
     setScore(0);
     setIsGameOver(false);
     setIsPaused(false);
     resetZones();
     setShowZoneIntro(true);
+    setGameStarted(true);
   };
 
   return (
     <div className="relative mx-auto mt-10" style={{ width: GAME_WIDTH, height: GAME_HEIGHT }}>
+      
+      {/* START GAME SCREEN */}
+      {!gameStarted && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 text-white z-50">
+          <h1 className="text-4xl font-bold mb-6">Astronaut Explorer</h1>
+          <button
+            className="px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-xl text-xl"
+            onClick={startGame}
+          >
+            Start Game
+          </button>
+        </div>
+      )}
+
       {/* Zone Intro */}
-      {showZoneIntro && (
+      {gameStarted && showZoneIntro && (
         <ZoneIntro
           zoneName={zone.name}
           onBegin={() => setShowZoneIntro(false)}
@@ -119,7 +157,7 @@ export default function GameContainer() {
       )}
 
       {/* Zone Completion Cinematic */}
-      {zoneComplete && (
+      {gameStarted && zoneComplete && (
         <ZoneComplete
           zoneName={zone.name}
           score={score}
@@ -128,7 +166,7 @@ export default function GameContainer() {
       )}
 
       {/* HUD */}
-      {!isGameOver && !showZoneIntro && !zoneComplete && (
+      {gameStarted && !isGameOver && !showZoneIntro && !zoneComplete && (
         <GameHUD
           score={score}
           zoneName={zone.name}
@@ -137,7 +175,7 @@ export default function GameContainer() {
       )}
 
       {/* Pause Menu */}
-      {isPaused && (
+      {gameStarted && isPaused && (
         <PauseMenu
           onResume={() => setIsPaused(false)}
           onQuit={restartGame}
@@ -145,7 +183,7 @@ export default function GameContainer() {
       )}
 
       {/* Game Over */}
-      {isGameOver && (
+      {gameStarted && isGameOver && (
         <GameOverScreen
           score={score}
           zoneName={zone.name}
@@ -154,50 +192,56 @@ export default function GameContainer() {
       )}
 
       {/* Game Canvas */}
-      <GameCanvas
-        width={GAME_WIDTH}
-        height={GAME_HEIGHT}
-        player={player}
-        obstacles={obstacles}
-        collectibles={collectibles}
-        zone={zone}
-        transitioning={transitioning}
-      />
+      {gameStarted && (
+        <GameCanvas
+          width={GAME_WIDTH}
+          height={GAME_HEIGHT}
+          player={player}
+          obstacles={obstacles}
+          collectibles={collectibles}
+          zone={zone}
+          transitioning={transitioning}
+        />
+      )}
 
       {/* Player */}
-      <Player
-        x={player.x}
-        y={player.y}
-        radius={player.radius}
-        direction={direction}
-        transitioning={transitioning}
-      />
+      {gameStarted && (
+        <Player
+          x={player.x}
+          y={player.y}
+          radius={player.radius}
+          direction={direction}
+          transitioning={transitioning}
+        />
+      )}
 
       {/* Managers */}
-      <ObstacleManager
-        zone={zone}
-        width={GAME_WIDTH}
-        height={GAME_HEIGHT}
-        transitioning={transitioning}
-        onUpdate={handleObstacleUpdate}
-      />
+      {gameStarted && (
+        <>
+          <ObstacleManager
+            zone={zone}
+            width={GAME_WIDTH}
+            height={GAME_HEIGHT}
+            transitioning={transitioning}
+            onUpdate={handleObstacleUpdate}
+          />
 
-      <CollectibleManager
-        zone={zone}
-        width={GAME_WIDTH}
-        height={GAME_HEIGHT}
-        onUpdate={handleCollectibleUpdate}
-      />
+          <CollectibleManager
+            zone={zone}
+            width={GAME_WIDTH}
+            height={GAME_HEIGHT}
+            onUpdate={handleCollectibleUpdate}
+          />
+        </>
+      )}
 
       {/* Burst Effects */}
-      {bursts.map((b) => (
-        <CollectibleBurst key={b.id} {...b} />
-      ))}
+      {gameStarted &&
+        bursts.map((b) => <CollectibleBurst key={b.id} {...b} />)}
 
       {/* Hazard Impact Flash */}
-      {flashes.map((f) => (
-        <HazardFlash key={f} />
-      ))}
+      {gameStarted &&
+        flashes.map((f) => <HazardFlash key={f} />)}
     </div>
   );
 }

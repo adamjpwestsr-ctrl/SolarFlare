@@ -9,28 +9,37 @@ interface ZoneIntroProps {
 
 export default function ZoneIntro({ zoneName, onBegin }: ZoneIntroProps) {
   const [visible, setVisible] = useState(true);
+  const [countdown, setCountdown] = useState(3);
 
-  // Auto-dismiss after 3 seconds
+  // Countdown logic
   useEffect(() => {
-    const timer = setTimeout(() => {
+    if (!visible) return;
+
+    if (countdown === 0) {
       setVisible(false);
       onBegin();
-    }, 3000);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setCountdown((c) => c - 1);
+    }, 1000);
 
     return () => clearTimeout(timer);
-  }, [onBegin]);
+  }, [countdown, visible, onBegin]);
 
   if (!visible) return null;
 
   return (
     <div className="absolute inset-0 bg-black/80 backdrop-blur-xl flex flex-col items-center justify-center text-white z-50 animate-fadeIn zone-warp">
-      <h1 className="text-5xl font-extrabold mb-4 drop-shadow-lg zone-title-flash">
+      <h1 className="text-5xl font-extrabold mb-6 drop-shadow-lg zone-title-flash">
         {zoneName}
       </h1>
 
-      <p className="text-xl mb-8 opacity-90">
-        Mission initializing…
-      </p>
+      {/* Countdown Number */}
+      <div className="text-7xl font-extrabold mb-8 animate-pulse scale-110">
+        {countdown}
+      </div>
 
       <button
         onClick={() => {

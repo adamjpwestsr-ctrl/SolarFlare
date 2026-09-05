@@ -13,7 +13,7 @@ interface Entity {
   type?: string;
   name?: string;
   points?: number;
-  rarity?: string;
+  rarity?: string; // optional for obstacles, required for collectibles
 }
 
 interface GameCanvasProps {
@@ -66,7 +66,16 @@ export default function GameCanvas({
       {/* Collectibles */}
       <div className="absolute inset-0 z-10">
         {collectibles.map((c) => (
-          <Collectible key={c.id} {...c} />
+          <Collectible
+            key={c.id}
+            id={c.id}
+            x={c.x}
+            y={c.y}
+            radius={c.radius}
+            name={c.name ?? "Unknown"}
+            points={c.points ?? 0}
+            rarity={c.rarity ?? "common"}   {/* ← FIX: guarantee rarity */}
+          />
         ))}
       </div>
 

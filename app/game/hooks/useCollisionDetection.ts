@@ -7,7 +7,10 @@ interface Entity {
   x: number;
   y: number;
   radius: number;
+  points?: number;
+  rarity?: string;
 }
+
 
 interface UseCollisionDetectionOptions {
   player: { x: number; y: number; radius: number };

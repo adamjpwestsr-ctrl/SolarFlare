@@ -7,7 +7,7 @@ interface BurstProps {
 }
 
 export default function CollectibleBurst({ x, y, rarity }: BurstProps) {
-  const burstClass = `burst-${rarity}` ?? "burst-common";
+  const burstClass = `burst-${rarity || "common"}`;
 
   return (
     <>

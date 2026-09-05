@@ -14,7 +14,6 @@ import CollectibleBurst from "./components/CollectibleBurst";
 import HazardFlash from "./components/HazardFlash";
 import ZoneComplete from "./components/ZoneComplete";
 
-// FIXED: Named imports
 import { usePlayerMovement } from "./hooks/usePlayerMovement";
 import { useCollisionDetection } from "./hooks/useCollisionDetection";
 
@@ -23,8 +22,6 @@ import useBurstManager from "./hooks/useBurstManager";
 import useHazardFlash from "./hooks/useHazardFlash";
 
 import { syncCollectible, syncScore } from "./lib/supabaseSync";
-import { calculateScore } from "./lib/scoring";
-
 import zones from "./data/zones.json";
 
 const GAME_WIDTH = 900;
@@ -41,40 +38,16 @@ export default function GameContainer() {
   const { zone, nextZone, resetZones, transitioning, zoneComplete, completeZone } =
     useZoneController(zones);
 
- // Player movement
-const { position, direction } = usePlayerMovement({
-  speed: 6,
-  bounds: { width: GAME_WIDTH, height: GAME_HEIGHT }
-});
+  // Player movement
+  const { position, direction } = usePlayerMovement({
+    speed: 6,
+    bounds: { width: GAME_WIDTH, height: GAME_HEIGHT }
+  });
 
-// Add radius so collision detection works
-const player = { ...position, radius: 20 };
+  // Add radius so collision detection works
+  const player = { ...position, radius: 20 };
 
-
-
-  // Collision detection
-  useCollisionDetection({
-  player,
-  obstacles,
-  collectibles,
-  onHitObstacle: (obs) => {
-    triggerFlash();
-    setIsGameOver(true);
-    syncScore(explorerId, zone.id, score);
-  },
-  onCollect: (col) => {
-    const newScore = score + col.points;
-    setScore(newScore);
-
-    syncCollectible(explorerId, col.id, col.points);
-    spawnBurst(col.x, col.y, col.rarity);
-
-    setCollectibles((prev) => prev.filter((c) => c.id !== col.id));
-  }
-});
-
-
-  // Managers
+  // Managers (must come BEFORE collision detection)
   const [obstacles, setObstacles] = useState([]);
   const [collectibles, setCollectibles] = useState([]);
 
@@ -84,33 +57,32 @@ const player = { ...position, radius: 20 };
   const { bursts, spawnBurst } = useBurstManager();
   const { flashes, triggerFlash } = useHazardFlash();
 
-  // GAME LOOP
+  // Collision detection (now obstacles & collectibles exist)
+  useCollisionDetection({
+    player,
+    obstacles,
+    collectibles,
+    onHitObstacle: (obs) => {
+      triggerFlash();
+      setIsGameOver(true);
+      syncScore(explorerId, zone.id, score);
+    },
+    onCollect: (col) => {
+      const newScore = score + col.points;
+      setScore(newScore);
+
+      syncCollectible(explorerId, col.id, col.points);
+      spawnBurst(col.x, col.y, col.rarity);
+
+      setCollectibles((prev) => prev.filter((c) => c.id !== col.id));
+    }
+  });
+
+  // GAME LOOP (zone completion only)
   useEffect(() => {
     if (isPaused || isGameOver || showZoneIntro || transitioning || zoneComplete) return;
 
     const interval = setInterval(() => {
-      // Obstacle collision
-      const hitObstacle = checkObstacleCollision(player, obstacles);
-      if (hitObstacle) {
-        triggerFlash();
-        setIsGameOver(true);
-        syncScore(explorerId, zone.id, score);
-        return;
-      }
-
-      // Collectible collision
-      const hitCollectible = checkCollectibleCollision(player, collectibles);
-      if (hitCollectible) {
-        const newScore = score + hitCollectible.points;
-        setScore(newScore);
-
-        syncCollectible(explorerId, hitCollectible.id, hitCollectible.points);
-
-        spawnBurst(hitCollectible.x, hitCollectible.y, hitCollectible.rarity);
-
-        setCollectibles((prev) => prev.filter((c) => c.id !== hitCollectible.id));
-      }
-
       // Zone completion trigger
       if (player.x > GAME_WIDTH - 60) {
         completeZone();
@@ -120,20 +92,12 @@ const player = { ...position, radius: 20 };
     return () => clearInterval(interval);
   }, [
     player,
-    obstacles,
-    collectibles,
     isPaused,
     isGameOver,
     showZoneIntro,
     transitioning,
     zoneComplete,
-    score,
-    zone,
-    explorerId,
-    spawnBurst,
-    triggerFlash,
-    checkObstacleCollision,
-    checkCollectibleCollision
+    completeZone
   ]);
 
   const restartGame = () => {

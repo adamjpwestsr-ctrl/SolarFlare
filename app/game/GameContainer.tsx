@@ -41,11 +41,15 @@ export default function GameContainer() {
   const { zone, nextZone, resetZones, transitioning, zoneComplete, completeZone } =
     useZoneController(zones);
 
-  // Player movement
-const { position: player, direction } = usePlayerMovement({
+ // Player movement
+const { position, direction } = usePlayerMovement({
   speed: 6,
   bounds: { width: GAME_WIDTH, height: GAME_HEIGHT }
 });
+
+// Add radius so collision detection works
+const player = { ...position, radius: 20 };
+
 
 
   // Collision detection

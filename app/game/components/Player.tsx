@@ -7,9 +7,10 @@ interface PlayerProps {
   x: number;
   y: number;
   radius: number;
-  direction: "up" | "down" | "left" | "right" | null;
-  transitioning?: boolean;
+  direction: string | null;   // ← FIX
+  transitioning: boolean;
 }
+
 
 export default function Player({ x, y, radius, direction, transitioning }: PlayerProps) {
   const rotation =

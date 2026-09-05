@@ -43,10 +43,11 @@ export default function GameCanvas({
 }: GameCanvasProps) {
   return (
     <div
-      className={`
-        relative border border-white/20 rounded-2xl overflow-hidden shadow-2xl
-        ${transitioning ? "zone-transition-out zone-warp" : "zone-transition-in"}
-      `}
+className={`
+  relative border border-white/20 rounded-2xl overflow-hidden shadow-2xl
+  ${transitioning ? "zone-transition-out zone-warp" : "zone-transition-in"}
+`}
+
       style={{ width, height }}
     >
       {/* Starfield Background */}

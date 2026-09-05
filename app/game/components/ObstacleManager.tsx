@@ -12,9 +12,16 @@ interface ObstacleManagerProps {
   width: number;
   height: number;
   transitioning?: boolean;
+  onUpdate: (list: { id: string; x: number; y: number; radius: number; type: string }[]) => void;
 }
 
-export default function ObstacleManager({ zone, width, height, transitioning }: ObstacleManagerProps) {
+export default function ObstacleManager({
+  zone,
+  width,
+  height,
+  transitioning,
+  onUpdate
+}: ObstacleManagerProps) {
   const [obstacles, setObstacles] = useState<
     { id: string; x: number; y: number; radius: number; type: string }[]
   >([]);
@@ -31,22 +38,28 @@ export default function ObstacleManager({ zone, width, height, transitioning }: 
         type: hazardType
       };
     });
+
     setObstacles(newObstacles);
-  }, [zone, width, height]);
+    onUpdate(newObstacles); // ← send obstacles to GameContainer
+  }, [zone, width, height, onUpdate]);
 
   // Optional drift animation
   useEffect(() => {
     const interval = setInterval(() => {
-      setObstacles((prev) =>
-        prev.map((o) => ({
+      setObstacles((prev) => {
+        const drifted = prev.map((o) => ({
           ...o,
           x: (o.x + Math.sin(Date.now() / 1000 + o.radius) * 2 + width) % width,
           y: (o.y + Math.cos(Date.now() / 1000 + o.radius) * 2 + height) % height
-        }))
-      );
+        }));
+
+        onUpdate(drifted); // ← keep GameContainer in sync
+        return drifted;
+      });
     }, 100);
+
     return () => clearInterval(interval);
-  }, [width, height]);
+  }, [width, height, onUpdate]);
 
   return (
     <>

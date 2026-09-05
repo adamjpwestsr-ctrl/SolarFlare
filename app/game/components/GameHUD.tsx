@@ -4,8 +4,8 @@ interface GameHUDProps {
   score: number;
   zoneName: string;
   player: { x: number; y: number; radius: number };
-  obstacles: { x: number; y: number; radius: number }[];
-  collectibles: { x: number; y: number; radius: number }[];
+  obstacles: { id: string; x: number; y: number; radius: number }[];
+  collectibles: { id: string; x: number; y: number; radius: number }[];
   onPause: () => void;
 }
 

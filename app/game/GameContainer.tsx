@@ -165,14 +165,17 @@ export default function GameContainer() {
         />
       )}
 
-      {/* HUD */}
-      {gameStarted && !isGameOver && !showZoneIntro && !zoneComplete && (
-        <GameHUD
-          score={score}
-          zoneName={zone.name}
-          onPause={() => setIsPaused(true)}
-        />
-      )}
+{/* HUD */}
+{gameStarted && !isGameOver && !showZoneIntro && !zoneComplete && (
+  <GameHUD
+    score={score}
+    zoneName={zone.name}
+    player={player}
+    obstacles={obstacles}
+    collectibles={collectibles}
+    onPause={() => setIsPaused(true)}
+  />
+)}
 
       {/* Pause Menu */}
       {gameStarted && isPaused && (

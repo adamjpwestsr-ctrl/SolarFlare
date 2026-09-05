@@ -12,9 +12,25 @@ interface CollectibleManagerProps {
   };
   width: number;
   height: number;
+  onUpdate: (
+    list: {
+      id: string;
+      x: number;
+      y: number;
+      radius: number;
+      name: string;
+      points: number;
+      rarity: string;
+    }[]
+  ) => void;
 }
 
-export default function CollectibleManager({ zone, width, height }: CollectibleManagerProps) {
+export default function CollectibleManager({
+  zone,
+  width,
+  height,
+  onUpdate
+}: CollectibleManagerProps) {
   const [collectibles, setCollectibles] = useState<
     {
       id: string;
@@ -46,22 +62,26 @@ export default function CollectibleManager({ zone, width, height }: CollectibleM
     });
 
     setCollectibles(newCollectibles);
-  }, [zone, width, height]);
+    onUpdate(newCollectibles); // ← send to GameContainer
+  }, [zone, width, height, onUpdate]);
 
   // Optional sparkle respawn
   useEffect(() => {
     const interval = setInterval(() => {
-      setCollectibles((prev) =>
-        prev.map((c) => ({
+      setCollectibles((prev) => {
+        const moved = prev.map((c) => ({
           ...c,
           x: Math.random() * width,
           y: Math.random() * height
-        }))
-      );
+        }));
+
+        onUpdate(moved); // ← keep GameContainer synced
+        return moved;
+      });
     }, 10000);
 
     return () => clearInterval(interval);
-  }, [width, height]);
+  }, [width, height, onUpdate]);
 
   return (
     <>

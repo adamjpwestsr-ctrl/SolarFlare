@@ -13,7 +13,7 @@ interface Entity {
   type?: string;
   name?: string;
   points?: number;
-  rarity?: string; // optional for obstacles, required for collectibles
+  rarity?: string;
 }
 
 interface GameCanvasProps {
@@ -43,11 +43,10 @@ export default function GameCanvas({
 }: GameCanvasProps) {
   return (
     <div
-className={`
-  relative border border-white/20 rounded-2xl overflow-hidden shadow-2xl
-  ${transitioning ? "zone-transition-out zone-warp" : "zone-transition-in"}
-`}
-
+      className={`
+        relative border border-white/20 rounded-2xl overflow-hidden shadow-2xl
+        ${transitioning ? "zone-transition-out zone-warp" : "zone-transition-in"}
+      `}
       style={{ width, height }}
     >
       {/* Starfield Background */}
@@ -75,7 +74,7 @@ className={`
             radius={c.radius}
             name={c.name ?? "Unknown"}
             points={c.points ?? 0}
-            rarity={c.rarity ?? "common"}   {/* ← FIX: guarantee rarity */}
+            rarity={c.rarity ?? "common"}
           />
         ))}
       </div>

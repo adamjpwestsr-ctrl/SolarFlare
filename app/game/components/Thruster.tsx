@@ -3,7 +3,7 @@
 interface ThrusterProps {
   x: number;
   y: number;
-  direction: "up" | "down" | "left" | "right" | null;
+  direction: string | null;   // ← FIX
 }
 
 export default function Thruster({ x, y, direction }: ThrusterProps) {
